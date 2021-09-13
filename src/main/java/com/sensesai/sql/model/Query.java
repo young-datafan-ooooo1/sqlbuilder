@@ -5,6 +5,7 @@ import com.sensesai.sql.enums.DatabaseType;
 import com.sensesai.sql.enums.ModelType;
 import com.sensesai.sql.enums.SortType;
 import com.sensesai.sql.exception.SQLBuildException;
+import com.sensesai.sql.util.AliasUtils;
 import com.sensesai.sql.util.AssertUtils;
 import com.sensesai.sql.util.ConstantUtils;
 import com.sensesai.sql.util.Utils;
@@ -273,16 +274,21 @@ public class Query implements Model {
      * @return 对应的sql
      */
     private String replaceConstant(DatabaseType databaseType, boolean useValue, final String sql) {
-        String s = sql;
-        for (Map.Entry<String, PrecompileParameterVo> entry : ConstantUtils.getThreadLocalConstant().entrySet()) {
-            if (useValue) {
-                s = s.replace(entry.getKey(), ConstantUtils.convertDatabaseValue(databaseType, entry.getValue()));
-            } else {
-                s = s.replace(entry.getKey(), "?");
-                precompileParameterVoList.add(entry.getValue());
+        try {
+            String s = sql;
+            for (Map.Entry<String, PrecompileParameterVo> entry : ConstantUtils.getThreadLocalConstant().entrySet()) {
+                if (useValue) {
+                    s = s.replace(entry.getKey(), ConstantUtils.convertDatabaseValue(databaseType, entry.getValue()));
+                } else {
+                    s = s.replace(entry.getKey(), "?");
+                    precompileParameterVoList.add(entry.getValue());
+                }
             }
+            return s;
+        } finally {
+            AliasUtils.clean();
+            ConstantUtils.cleanThreadLocalConstant();
         }
-        return s;
     }
 
     /**
