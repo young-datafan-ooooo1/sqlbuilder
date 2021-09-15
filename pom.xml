@@ -172,6 +172,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
+                    <include>META-INF/services/*</include>
                     <include>*.properties</include>
                     <include>*.json</include>
                 </includes>
