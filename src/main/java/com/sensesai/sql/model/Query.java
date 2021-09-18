@@ -224,8 +224,13 @@ public class Query implements Model {
      * @return 预编译sql
      */
     public String getExecuteSql(DatabaseType databaseType) {
-        String sql = buildSql(databaseType);
-        return replaceConstant(databaseType, true, sql);
+        try {
+            String sql = buildSql(databaseType);
+            return replaceConstant(databaseType, true, sql);
+        } finally {
+            AliasUtils.clean();
+            ConstantUtils.cleanThreadLocalConstant();
+        }
     }
 
     /**
@@ -235,8 +240,13 @@ public class Query implements Model {
      * @return 预编译sql
      */
     public String getPreSql(DatabaseType databaseType) {
-        String sql = buildSql(databaseType);
-        return replaceConstant(databaseType, false, sql);
+        try {
+            String sql = buildSql(databaseType);
+            return replaceConstant(databaseType, false, sql);
+        } finally {
+            AliasUtils.clean();
+            ConstantUtils.cleanThreadLocalConstant();
+        }
     }
 
 
