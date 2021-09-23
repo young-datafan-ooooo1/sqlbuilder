@@ -67,15 +67,15 @@ public enum FunctionType {
     WEEK_BEGIN("week_begin", "周初"),
     WEEK_END("week_end", "周末"),
 
-    CURRENT_TIMESTAMP("current_timestamp","当前日期时间"),
-    CURRENT_DATE("current_date","当前日期"),
-    CURRENT_TIME("current_time","当前时间"),
+    CURRENT_TIMESTAMP("current_timestamp", "当前日期时间"),
+    CURRENT_DATE("current_date", "当前日期"),
+    CURRENT_TIME("current_time", "当前时间"),
 
-    CURRENT_YEAR("current_year","当前年"),
-    CURRENT_QUARTER("current_quarter","当前季度"),
-    CURRENT_MONTH("current_month","当前月"),
-    CURRENT_WEEK("current_week","当前周"),
-    CURRENT_DAY("current_day","当前日"),
+    CURRENT_YEAR("current_year", "当前年"),
+    CURRENT_QUARTER("current_quarter", "当前季度"),
+    CURRENT_MONTH("current_month", "当前月"),
+    CURRENT_WEEK("current_week", "当前周"),
+    CURRENT_DAY("current_day", "当前日"),
 
 
     DECODE("decode", ""),
