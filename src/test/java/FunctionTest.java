@@ -419,4 +419,28 @@ public class FunctionTest {
         query.addColumn("weekBegin", weekBegin);
         query.addColumn("weekEnd", weekEnd);
     }
+
+    /**
+     * 测试当前时间
+     */
+    @Test
+    public void testCurrentTimestamp() {
+        Function currentTimestamp = Function.getFunction(FunctionType.CURRENT_TIMESTAMP);
+        //Function currentDate = Function.getFunction(FunctionType.CURRENT_DATE);
+        //Function currentTime = Function.getFunction(FunctionType.CURRENT_TIME);
+        Function currentYear = Function.getFunction(FunctionType.CURRENT_YEAR);
+        Function currentQuarter = Function.getFunction(FunctionType.CURRENT_QUARTER);
+        Function currentMonth = Function.getFunction(FunctionType.CURRENT_MONTH);
+        Function currentWeek = Function.getFunction(FunctionType.CURRENT_WEEK);
+        Function currentDay = Function.getFunction(FunctionType.CURRENT_DAY);
+
+        query.addColumn("currentTimestamp" + "Val", currentTimestamp);
+        //query.addColumn("currentDate" + "Val", currentDate);
+        //query.addColumn("currentTime" + "Val", currentTime);
+        query.addColumn("currentYear" + "Val", currentYear);
+        query.addColumn("currentQuarter" + "Val", currentQuarter);
+        query.addColumn("currentMonth" + "Val", currentMonth);
+        query.addColumn("currentWeek" + "Val", currentWeek);
+        query.addColumn("currentDay" + "Val", currentDay);
+    }
 }
