@@ -572,6 +572,78 @@
       "paramMinSize": 1,
       "paramMaxSize": 1,
       "params": []
+    },
+    {
+      "name": "current_timestamp",
+      "function": "current_timestamp",
+      "describe": "当前日期时间",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_date",
+      "function": "current_date",
+      "describe": "当前日期",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_time",
+      "function": "current_time",
+      "describe": "当前时间",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_year",
+      "function": "EXTRACT(YEAR FROM CURRENT_TIMESTAMP)",
+      "describe": "当前年",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_quarter",
+      "function": "EXTRACT(QUARTER FROM CURRENT_TIMESTAMP)",
+      "describe": "当前季度",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_month",
+      "function": "EXTRACT(MONTH FROM CURRENT_TIMESTAMP)",
+      "describe": "当前月",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_week",
+      "function": "EXTRACT(WEEK FROM CURRENT_TIMESTAMP)",
+      "describe": "当前周",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_day",
+      "function": "EXTRACT(DAY FROM CURRENT_TIMESTAMP)",
+      "describe": "当前日",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
     }
   ]
 }

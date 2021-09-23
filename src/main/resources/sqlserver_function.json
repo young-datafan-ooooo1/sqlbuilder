@@ -539,7 +539,7 @@
     },
     {
       "name": "week_begin",
-      "function": "DATEADD( DAY, ( 2-DATEPART ( weekday,#1) ), t.create_time )",
+      "function": "DATEADD( DAY, ( 2-DATEPART ( weekday,#1) ), #1 )",
       "describe": "周初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -548,11 +548,65 @@
     },
     {
       "name": "week_end",
-      "function": "DATEADD( DAY, ( 8-DATEPART ( weekday, t.create_time ) ), #1)",
+      "function": "DATEADD( DAY, ( 8-DATEPART ( weekday, #1 ) ), #1)",
       "describe": "周末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
       "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "current_timestamp",
+      "function": "GETDATE()",
+      "describe": "当前日期时间",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_year",
+      "function": "DATEPART(YEAR ,GETDATE())",
+      "describe": "当前年",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_quarter",
+      "function": "DATEPART(QUARTER ,GETDATE())",
+      "describe": "当前季度",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_month",
+      "function": "DATEPART(MONTH ,GETDATE())",
+      "describe": "当前月",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_week",
+      "function": "DATEPART(WEEK ,GETDATE())",
+      "describe": "当前周",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_day",
+      "function": "DATEPART(DAY ,GETDATE())",
+      "describe": "当前日",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
       "params": []
     }
   ]
