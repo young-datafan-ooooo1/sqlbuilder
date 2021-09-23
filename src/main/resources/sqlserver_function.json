@@ -539,7 +539,7 @@
     },
     {
       "name": "week_begin",
-      "function": "DATEADD( DAY, ( 2-DATEPART ( weekday,#1) ), t.create_time )",
+      "function": "DATEADD( DAY, ( 2-DATEPART ( weekday,#1) ), #1 )",
       "describe": "周初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -548,7 +548,7 @@
     },
     {
       "name": "week_end",
-      "function": "DATEADD( DAY, ( 8-DATEPART ( weekday, t.create_time ) ), #1)",
+      "function": "DATEADD( DAY, ( 8-DATEPART ( weekday, #1 ) ), #1)",
       "describe": "周末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
