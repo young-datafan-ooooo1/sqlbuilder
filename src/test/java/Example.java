@@ -1,13 +1,34 @@
-# 说明
+import com.sensesai.sql.enums.Cp;
+import com.sensesai.sql.enums.DataType;
+import com.sensesai.sql.enums.DatabaseType;
+import com.sensesai.sql.enums.FunctionType;
+import com.sensesai.sql.enums.JoinType;
+import com.sensesai.sql.enums.SortType;
+import com.sensesai.sql.model.BinaryCondition;
+import com.sensesai.sql.model.Conditions;
+import com.sensesai.sql.model.Constant;
+import com.sensesai.sql.model.CustomSql;
+import com.sensesai.sql.model.Field;
+import com.sensesai.sql.model.Function;
+import com.sensesai.sql.model.Join;
+import com.sensesai.sql.model.Query;
+import com.sensesai.sql.model.Schema;
+import com.sensesai.sql.model.Table;
+import com.sensesai.sql.vo.PrecompileParameterVo;
+import org.junit.Test;
 
-sqlbuilder
+import java.util.List;
 
-通用的sql构建包，目前支持（mysql、oracle、postgresql、sqlserver、Clickhouse）的大部分函数，以及多表关联
+/**
+ * 例子.
+ *
+ * @author yinkaifeng
+ * @since 2021-09-24 4:13 下午
+ */
+public class Example {
 
---------------------------------------------------------------------------------
-一、使用
-
-1、通过构建对象Query构建一个查询语句，例如：
+    @Test
+    public void test() {
 
         //构建Schema对象
         Schema schema = Schema.getSchema("test");
@@ -52,4 +73,9 @@ sqlbuilder
         String preSql = query.getPreSql(DatabaseType.MYSQL);
         //获取预编译sql参数
         List<PrecompileParameterVo> precompileParameterVoList = query.getPrecompileParameterVoList();
-2、其他参考测试用例
+        System.out.println("可执行sql:");
+        System.out.println(sql);
+        System.out.println("预编译sql:");
+        System.out.println(preSql);
+    }
+}
