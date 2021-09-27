@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sensesai.stella</groupId>
     <artifactId>stella-sqlbuilder</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <scm>
         <developerConnection>scm:git:http://git.senses-ai.com/stella-productization/sqlbuilder.git</developerConnection>
-        <tag>stella-sqlbuilder-1.2.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
