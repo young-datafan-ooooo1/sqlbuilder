@@ -442,7 +442,7 @@ public class MySqlParser {
          */
         private SqlIdentifier sqlIdentifier;
 
-        public ReplaceNode(int index, SqlIdentifier sqlIdentifier) {
+        ReplaceNode(int index, SqlIdentifier sqlIdentifier) {
             this.index = index;
             this.sqlIdentifier = sqlIdentifier;
         }
