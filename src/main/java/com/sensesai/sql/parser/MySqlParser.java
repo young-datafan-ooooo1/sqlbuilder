@@ -3,6 +3,7 @@ package com.sensesai.sql.parser;
 import com.google.common.collect.ImmutableList;
 import com.sensesai.sql.exception.SQLBuildException;
 import com.sensesai.sql.util.Utils;
+import lombok.Data;
 import lombok.Getter;
 import org.apache.calcite.avatica.util.Quoting;
 import org.apache.calcite.config.Lex;
@@ -31,7 +32,7 @@ import java.util.List;
  * @author yinkaifeng
  * @since 2021-09-24 6:13 下午
  */
-@Getter
+@Data
 public class MySqlParser {
     private static final Logger LOGGER = LoggerFactory.getLogger(MySqlParser.class);
 
