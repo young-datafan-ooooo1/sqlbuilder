@@ -1,4 +1,4 @@
-import com.sensesai.sql.parser.MySqlParser;
+import com.sensesai.sql.parser.StellaSqlParser;
 import org.apache.calcite.config.Lex;
 import org.apache.calcite.sql.SqlNode;
 import org.apache.calcite.sql.parser.SqlParseException;
@@ -18,13 +18,13 @@ public class TableReplaceTest {
             .setLex(Lex.MYSQL)
             .build();
 
-    private MySqlParser mySqlParser;
+    private StellaSqlParser stellaSqlParser;
 
     private String sql;
 
     @Before
     public void before() {
-        mySqlParser = new MySqlParser("test", "test_copy1");
+        stellaSqlParser = new StellaSqlParser("test", "test_copy1");
     }
 
     @After
@@ -34,7 +34,7 @@ public class TableReplaceTest {
         System.out.println("源sql：");
         System.out.println(sql);
 
-        String replace = mySqlParser.replace(sql);
+        String replace = stellaSqlParser.replace(sql);
         System.out.println("替换后的sql：");
         System.out.println(replace);
     }
@@ -77,7 +77,7 @@ public class TableReplaceTest {
 
     @Test
     public void testKeyword() {
-        mySqlParser = new MySqlParser("INTERVAL", "test_copy1");
+        stellaSqlParser = new StellaSqlParser("INTERVAL", "test_copy1");
         sql = "select  date_add( t.create_date, INTERVAL 1 YEAR ) from `INTERVAL` t";
     }
 

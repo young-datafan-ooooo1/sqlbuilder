@@ -33,8 +33,8 @@ import java.util.List;
  * @since 2021-09-24 6:13 下午
  */
 @Data
-public class MySqlParser {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MySqlParser.class);
+public class StellaSqlParser {
+    private static final Logger LOGGER = LoggerFactory.getLogger(StellaSqlParser.class);
 
     private SqlParser.Config config = SqlParser.config()
             .withLex(Lex.MYSQL);
@@ -60,7 +60,7 @@ public class MySqlParser {
      * @param oldTableName 旧表名
      * @param newTableName 新表名
      */
-    public MySqlParser(String oldTableName, String newTableName) {
+    public StellaSqlParser(String oldTableName, String newTableName) {
         this("", oldTableName, newTableName);
     }
 
@@ -71,7 +71,7 @@ public class MySqlParser {
      * @param oldTableName 旧表名
      * @param newTableName 新表名
      */
-    public MySqlParser(String quotingStr, String oldTableName, String newTableName) {
+    public StellaSqlParser(String quotingStr, String oldTableName, String newTableName) {
         if (Utils.isEmpty(oldTableName)) {
             throw new SQLBuildException("旧表名不能为空");
         }
@@ -82,6 +82,8 @@ public class MySqlParser {
         this.newTableName = newTableName;
         if (Quoting.DOUBLE_QUOTE.string.equals(quotingStr)) {
             config = SqlParser.config().withLex(Lex.ORACLE);
+        } else if (Quoting.BRACKET.string.equals(quotingStr)) {
+            config = SqlParser.config().withLex(Lex.SQL_SERVER);
         }
     }
 
