@@ -39,7 +39,7 @@ public enum DateFormatType {
     public static DateFormatType getEnumByCode(String code) {
         DateFormatType[] values = DateFormatType.values();
         for (DateFormatType val : values) {
-            if (val.getCode().equalsIgnoreCase(code)) {
+            if (val.getCode().equals(code)) {
                 return val;
             }
         }

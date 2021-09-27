@@ -8,7 +8,7 @@
 
     <scm>
         <developerConnection>scm:git:http://git.senses-ai.com/stella-productization/sqlbuilder.git</developerConnection>
-        <tag>stella-sqlbuilder-1.2.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>

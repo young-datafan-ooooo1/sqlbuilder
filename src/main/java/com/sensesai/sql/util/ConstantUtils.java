@@ -114,6 +114,7 @@ public class ConstantUtils {
             case INT:
             case INTEGER:
                 return getInt(value);
+            case BIGINT:
             case LONG:
                 return getLong(value);
             case FLOAT:

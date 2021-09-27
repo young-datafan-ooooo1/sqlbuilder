@@ -13,6 +13,7 @@ public enum DataType {
     STRING("string", "string"),
     INT("int", "integer"),
     INTEGER("integer", "integer"),
+    BIGINT("bigint", "bigint"),
     LONG("long", "long"),
     FLOAT("float", "float"),
     DOUBLE("double", "double"),
