@@ -5,9 +5,9 @@ sqlbuilder
 通用的sql构建包，目前支持（mysql、oracle、postgresql、sqlserver、Clickhouse）的大部分函数，以及多表关联
 
 --------------------------------------------------------------------------------
-#一、使用
+# 使用
 
-##1、通过构建对象Query构建一个查询语句，例如：
+## 通过构建对象Query构建一个查询语句，例如：
 ```
 //构建Schema对象
 Schema schema = Schema.getSchema("test");
@@ -53,9 +53,9 @@ String preSql = query.getPreSql(DatabaseType.MYSQL);
 //获取预编译sql参数
 List<PrecompileParameterVo> precompileParameterVoList = query.getPrecompileParameterVoList();
 ```
-##2、其他参考测试用例
+## 其他参考测试用例
 
-##3、替换sql中的表名，例如：
+## 替换sql中的表名，例如：
 ```
 StellaSqlParser stellaSqlParser = new StellaSqlParser("`", "test", "test_copy1");
 String replace = stellaSqlParser.replace(sql);
