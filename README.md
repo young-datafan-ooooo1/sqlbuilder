@@ -54,3 +54,11 @@ String preSql = query.getPreSql(DatabaseType.MYSQL);
 List<PrecompileParameterVo> precompileParameterVoList = query.getPrecompileParameterVoList();
 ```
 ##2、其他参考测试用例
+
+##3、替换sql中的表名，例如：
+```
+MySqlParser mySqlParser = new MySqlParser("`", "test", "test_copy1");
+String replace = mySqlParser.replace(sql);
+System.out.println("替换后的sql：");
+System.out.println(replace);
+```
