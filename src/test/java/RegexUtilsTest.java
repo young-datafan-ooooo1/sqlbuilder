@@ -15,6 +15,19 @@ public class RegexUtilsTest {
         System.out.println(RegexUtils.isMatchVarchar("'df'"));
         System.out.println(RegexUtils.isMatchVarchar("''"));
         System.out.println(RegexUtils.isMatchVarchar("'2021-01-01 12:01:01'"));
+        System.out.println(RegexUtils.isMatchVarchar("'姓名：'"));
+    }
+
+    @Test
+    public void testNumber(){
+        System.out.println(RegexUtils.isMatchNumber("0"));
+        System.out.println(RegexUtils.isMatchNumber("0.0000"));
+        System.out.println(RegexUtils.isMatchNumber("-0.1"));
+        System.out.println(RegexUtils.isMatchNumber("0.1"));
+        System.out.println(RegexUtils.isMatchNumber("100.1200"));
+        System.out.println(RegexUtils.isMatchNumber("1001.12"));
+        System.out.println(RegexUtils.isMatchNumber("1."));
+        System.out.println(RegexUtils.isMatchNumber("01.12"));
     }
 
     @Test

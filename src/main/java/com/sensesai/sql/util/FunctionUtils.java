@@ -133,8 +133,16 @@ public class FunctionUtils {
         sql.append(functionDefinition.getFunction());
         sql.append(functionDefinition.getLeftQuote());
         List<Model> paramList = function.getParamList();
+        boolean isDiv = function.getFunctionType() == FunctionType.DIV;
+        String str;
         for (int i = 0, size = paramList.size(); i < size; i++) {
-            sql.append(paramList.get(i).getDatabaseSql(databaseType));
+            str = paramList.get(i).getDatabaseSql(databaseType);
+            if (isDiv && i > 0) {
+                sql.append("(case when ").append(str).append("=0 then null")
+                        .append(" else ").append(str).append(" end)");
+            } else {
+                sql.append(str);
+            }
             //最后一个参数不需要分隔符号
             if (i != size - 1) {
                 sql.append(functionDefinition.getParamSplit());

@@ -77,7 +77,7 @@
     {
       "name": "percentage",
       "describe": "百分比",
-      "function": "CONCAT(#1*100,'%')",
+      "function": "ROUND(#1/100,2)",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
       "paramMaxSize": 1,
@@ -503,7 +503,7 @@
     },
     {
       "name": "year_begin",
-      "function": "TO_DATE(concat(date_format(#1, '%Y' ),'-01-01'),'%Y-%m-%d')",
+      "function": "trunc(#1, 'yyyy' )",
       "describe": "年初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -512,7 +512,7 @@
     },
     {
       "name": "year_end",
-      "function": "TO_DATE(concat(date_format(#1, '%Y' ), '-12-31' ), '%Y-%m-%d' )",
+      "function": "add_months( trunc(#1, 'yyyy' ), 12 ) - 1",
       "describe": "年末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -521,7 +521,7 @@
     },
     {
       "name": "quarter_begin",
-      "function": "( TO_DATE( concat( date_format(#1, '%Y' ), '-01-01' ), '%Y-%m-%d' ), INTERVAL 3 * (EXTRACT( QUARTER FROM #1)-1) MONTH )",
+      "function": "trunc(#1, 'QUARTER' )",
       "describe": "季初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -530,7 +530,7 @@
     },
     {
       "name": "quarter_end",
-      "function": "( TO_DATE( concat( date_format(#1, '%Y' ), '-01-31' ), '%Y-%m-%d' ), INTERVAL (3 * EXTRACT( QUARTER FROM #1)-1) MONTH )",
+      "function": "add_months(trunc(#1, 'QUARTER' ), 3 )-1",
       "describe": "季末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -539,7 +539,7 @@
     },
     {
       "name": "month_begin",
-      "function": "( LAST_DAY( date_sub(#1, INTERVAL 1 MONTH )), INTERVAL 1 DAY )",
+      "function": "trunc(#1, 'MM' )",
       "describe": "月初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -557,7 +557,7 @@
     },
     {
       "name": "week_begin",
-      "function": "(#1, INTERVAL ( 2-DAYOFWEEK (#1)) DAY )",
+      "function": "trunc(#1, 'WEEK' )",
       "describe": "周初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -566,7 +566,7 @@
     },
     {
       "name": "week_end",
-      "function": "(#1, INTERVAL ( 8-DAYOFWEEK (#1)) DAY )",
+      "function": "trunc(#1, 'WEEK' )+6",
       "describe": "周末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,

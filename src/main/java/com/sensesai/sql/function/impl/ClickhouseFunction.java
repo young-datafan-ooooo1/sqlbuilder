@@ -1,6 +1,7 @@
 package com.sensesai.sql.function.impl;
 
 import com.sensesai.sql.enums.DatabaseType;
+import com.sensesai.sql.enums.DateFormatType;
 import com.sensesai.sql.enums.TimeUnitType;
 import com.sensesai.sql.exception.SQLBuildException;
 import com.sensesai.sql.model.AbstractFunction;
@@ -16,6 +17,26 @@ public class ClickhouseFunction extends AbstractDatabaseFunctionAbstract {
     @Override
     public DatabaseType getDatabaseType() {
         return DatabaseType.CLICKHOUSE;
+    }
+
+    /**
+     * 字符串转日期.
+     *
+     * @param abstractFunction 函数模型
+     * @return 数据库标准sql.
+     */
+    public String strToDate(AbstractFunction abstractFunction) {
+        Function function = isFunction(abstractFunction);
+        DateFormatType dateFormatType = getDateFormatType(function, 2, 1);
+        String model1 = function.getParamList().get(0).getDatabaseSql(getDatabaseType());
+        switch (dateFormatType) {
+            case YYYY_MM_DD:
+                return "toDate(" + model1 + ")";
+            case YYYY_MM_DD_HH24_MI_SS:
+                return "toDateTime(" + model1 + ")";
+            default:
+                throw new SQLBuildException(getDatabaseType().getCode() + "暂不支持" + dateFormatType.getName() + "格式");
+        }
     }
 
     /**

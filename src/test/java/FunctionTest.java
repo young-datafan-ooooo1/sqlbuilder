@@ -54,6 +54,10 @@ public class FunctionTest {
         System.out.println(query.getDatabaseSql(DatabaseType.POSTGRESQL));
         System.out.println();
 
+        System.out.println("kdw：");
+        System.out.println(query.getDatabaseSql(DatabaseType.KDW));
+        System.out.println();
+
         System.out.println("clickhouse：");
         System.out.println(query.getDatabaseSql(DatabaseType.CLICKHOUSE));
         System.out.println();

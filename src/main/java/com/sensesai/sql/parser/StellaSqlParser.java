@@ -36,8 +36,9 @@ import java.util.List;
 public class StellaSqlParser {
     private static final Logger LOGGER = LoggerFactory.getLogger(StellaSqlParser.class);
 
-    private SqlParser.Config config = SqlParser.config()
-            .withLex(Lex.MYSQL);
+    private SqlParser.Config config = SqlParser.configBuilder()
+            .setLex(Lex.MYSQL)
+            .build();
 
     /**
      * 旧表名.
@@ -81,9 +82,9 @@ public class StellaSqlParser {
         this.oldTableName = oldTableName;
         this.newTableName = newTableName;
         if (Quoting.DOUBLE_QUOTE.string.equals(quotingStr)) {
-            config = SqlParser.config().withLex(Lex.ORACLE);
+            config = SqlParser.configBuilder().setLex(Lex.ORACLE).build();
         } else if (Quoting.BRACKET.string.equals(quotingStr)) {
-            config = SqlParser.config().withLex(Lex.SQL_SERVER);
+            config = SqlParser.configBuilder().setLex(Lex.SQL_SERVER).build();
         }
     }
 
@@ -94,11 +95,11 @@ public class StellaSqlParser {
      * @return 替换后的sql
      */
     public String replace(String sql) {
-        String targetSql = sql;
+        String targetSql = unescapeSql(sql);
         parseSql(targetSql);
         //排序
         sort();
-        String[] split = sql.split("\n");
+        String[] split = targetSql.split("\n");
         //总共有多少行
         int totalLine = split.length;
         int lastColumnNum = 0;
@@ -185,6 +186,17 @@ public class StellaSqlParser {
                 return -1;
             }
         });
+    }
+
+    /**
+     * sql 转义处理.
+     *
+     * @param sql sql
+     * @return 转以后的sql
+     */
+    private String unescapeSql(String sql) {
+        // != 统一转换成<>
+        return sql.replace("!=", "<>");
     }
 
     /**

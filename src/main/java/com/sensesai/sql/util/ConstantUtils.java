@@ -69,8 +69,8 @@ public class ConstantUtils {
             case NUMBER:
                 return value;
             case DATE:
-            case TIME:
             case DATETIME:
+            case TIME:
                 return Function.getFunction(FunctionType.STRING_TO_DATE,
                                 CustomSql.getCustomSql("'" + value + "'"),
                                 CustomSql.getCustomSql(DateFormatType.YYYY_MM_DD_HH24_MI_SS.getCode()))
@@ -331,7 +331,7 @@ public class ConstantUtils {
                 return new Time(DateUtils.parseDate(value, format).getTime());
             }
             return new Time(DateUtils.parseDate(value,
-                    "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd").getTime());
+                    "HH:mm:ss", "yyyy-MM-dd HH:mm:ss").getTime());
         } catch (Exception e) {
             throw new SQLBuildException(value + "不能转换成Time", e);
         }

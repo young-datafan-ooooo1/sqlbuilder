@@ -1,0 +1,436 @@
+[
+  {
+    "name": "+",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "-",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "*",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "/",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "power",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      },
+      {
+        "checkRegexType": ["int"]
+      }
+    ]
+  },
+  {
+    "name": "percentage",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "abs",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "round",
+    "min": 1,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      },
+      {
+        "checkRegexType": ["int"]
+      }
+    ]
+  },
+  {
+    "name": "ceil",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "floor",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "concat",
+    "min": 2,
+    "max": 9999,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "instr",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "lower",
+    "min": 1,
+    "max": 1,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "upper",
+    "min": 1,
+    "max": 1,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "trim",
+    "min": 1,
+    "max": 1,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "ltrim",
+    "min": 1,
+    "max": 1,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "rtrim",
+    "min": 1,
+    "max": 1,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "lsubstr",
+    "min": 2,
+    "max": 2,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      },
+      {
+        "checkRegexType": ["int"]
+      }
+    ]
+  },
+  {
+    "name": "rsubstr",
+    "min": 2,
+    "max": 2,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      },
+      {
+        "checkRegexType": ["int"]
+      }
+    ]
+  },
+  {
+    "name": "substr",
+    "min": 3,
+    "max": 3,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      },
+      {
+        "checkRegexType": ["int"]
+      },
+      {
+        "checkRegexType": ["int"]
+      }
+    ]
+  },
+  {
+    "name": "replace",
+    "min": 3,
+    "max": 3,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "length",
+    "min": 1,
+    "max": 1,
+    "returnType": "int",
+    "params": [
+      {
+        "checkRegexType": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "to_date",
+    "min": 2,
+    "max": 2,
+    "returnType": "datetime",
+    "params": [
+      {
+        "checkRegexType": ["string_field","date_varchar","datetime_varchar"]
+      },
+      {
+        "checkRegexType": ["date_format"]
+      }
+    ]
+  },
+  {
+    "name": "to_char",
+    "min": 2,
+    "max": 2,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      },
+      {
+        "checkRegexType": ["date_format"]
+      }
+    ]
+  },
+  {
+    "name": "datediff",
+    "min": 3,
+    "max": 3,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["time_unit"]
+      },
+      {
+        "checkRegexType": ["datetime","date","time","timestamp"]
+      },
+      {
+        "checkRegexType": ["datetime","date","time","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "addDateTime",
+    "min": 3,
+    "max": 3,
+    "returnType": "datetime",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","time","timestamp"]
+      },
+      {
+        "checkRegexType": ["int"]
+      },
+      {
+        "checkRegexType": ["time_unit"]
+      }
+    ]
+  },
+  {
+    "name": "addDateTime",
+    "min": 3,
+    "max": 3,
+    "returnType": "datetime",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","time","timestamp"]
+      },
+      {
+        "checkRegexType": ["int"]
+      },
+      {
+        "checkRegexType": ["time_unit"]
+      }
+    ]
+  },
+  {
+    "name": "current_timestamp",
+    "min": 0,
+    "max": 0,
+    "returnType": "datetime",
+    "params": []
+  },
+  {
+    "name": "year_end",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "quarter_end",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "month_end",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "week_end",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "year_begin",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "quarter_begin",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "month_begin",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  },
+  {
+    "name": "week_begin",
+    "min": 1,
+    "max": 1,
+    "returnType": "date",
+    "params": [
+      {
+        "checkRegexType": ["datetime","date","timestamp"]
+      }
+    ]
+  }
+]

@@ -77,7 +77,7 @@
     {
       "name": "percentage",
       "describe": "百分比",
-      "function": "CONCAT(#1*100,'%')",
+      "function": "ROUND(#1/100,2)",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
       "paramMaxSize": 1,
@@ -503,7 +503,7 @@
     },
     {
       "name": "year_begin",
-      "function": "STR_TO_DATE(concat(date_format(#1, '%Y' ),'-01-01'),'%Y-%m-%d')",
+      "function": "STR_TO_DATE(date_format(#1, '%Y-01-01'),'%Y-%m-%d')",
       "describe": "年初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -512,7 +512,7 @@
     },
     {
       "name": "year_end",
-      "function": "STR_TO_DATE(concat(date_format(#1, '%Y' ), '-12-31' ), '%Y-%m-%d' )",
+      "function": "STR_TO_DATE(date_format(#1, '%Y-12-31' ), '%Y-%m-%d' )",
       "describe": "年末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -557,7 +557,7 @@
     },
     {
       "name": "week_begin",
-      "function": "DATE_ADD(#1, INTERVAL ( 2-DAYOFWEEK (#1)) DAY )",
+      "function": "STR_TO_DATE(date_format(DATE_ADD(#1, INTERVAL ( 2-DAYOFWEEK (#1)) DAY ),'%Y-%m-%d'),'%Y-%m-%d')",
       "describe": "周初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -566,7 +566,7 @@
     },
     {
       "name": "week_end",
-      "function": "DATE_ADD(#1, INTERVAL ( 8-DAYOFWEEK (#1)) DAY )",
+      "function": "STR_TO_DATE(date_format(DATE_ADD(#1, INTERVAL ( 8-DAYOFWEEK (#1)) DAY ),'%Y-%m-%d'),'%Y-%m-%d')",
       "describe": "周末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,

@@ -16,9 +16,9 @@ public class RegexUtils {
 
     private static final Pattern INT = Pattern.compile("(-)?(\\d){1,}");
 
-    private static final Pattern NUMBER = Pattern.compile("(-)?((\\d{1,})|(([1-9]{0,})\\d.\\d{1,}))");
+    private static final Pattern NUMBER = Pattern.compile("-?((\\d)|([1-9]\\d*\\.\\d{1,})|0\\.\\d{1,})");
 
-    private static final Pattern VARCHAR = Pattern.compile("'(\\w|\\s|:|-){0,}'");
+    private static final Pattern VARCHAR = Pattern.compile("'([\\s\\S]*)'");
 
     private static final Pattern DATETIME_VARCHAR = Pattern.compile("'((\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2})|(\\d{14}))'");
 

@@ -20,6 +20,7 @@ public enum DataType {
     NUMBER("number", "number"),
     DATE("date", "date"),
     DATETIME("datetime", "datetime"),
+    TIMESTAMP("timestamp", "datetime"),
     TIME("time", "time");
 
     /**
