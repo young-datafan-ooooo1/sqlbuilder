@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.young-datafan</groupId>
     <artifactId>sqlbuilder</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
+    <version>1.3.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -35,7 +35,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/young-datafan/sqlbuilder.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>sqlbuilder-1.3.0</tag>
     </scm>
 
     <distributionManagement>
