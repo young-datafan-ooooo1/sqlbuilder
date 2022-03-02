@@ -1,8 +1,8 @@
-import com.sensesai.sql.enums.DatabaseType;
-import com.sensesai.sql.enums.DateFormatType;
-import com.sensesai.sql.enums.FunctionType;
-import com.sensesai.sql.enums.TimeUnitType;
-import com.sensesai.sql.model.*;
+import com.youngdatafan.sqlbuilder.enums.DatabaseType;
+import com.youngdatafan.sqlbuilder.enums.DateFormatType;
+import com.youngdatafan.sqlbuilder.enums.FunctionType;
+import com.youngdatafan.sqlbuilder.enums.TimeUnitType;
+import com.youngdatafan.sqlbuilder.model.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

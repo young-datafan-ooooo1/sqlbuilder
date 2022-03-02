@@ -1,4 +1,4 @@
-import com.sensesai.sql.parser.StellaSqlParser;
+import com.youngdatafan.sqlbuilder.parser.StellaSqlParser;
 import org.apache.calcite.config.Lex;
 import org.apache.calcite.sql.SqlNode;
 import org.apache.calcite.sql.parser.SqlParseException;

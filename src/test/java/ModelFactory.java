@@ -1,11 +1,11 @@
-import com.sensesai.sql.enums.Cp;
-import com.sensesai.sql.enums.Op;
-import com.sensesai.sql.exception.SQLBuildException;
-import com.sensesai.sql.model.BinaryCondition;
-import com.sensesai.sql.model.Condition;
-import com.sensesai.sql.model.Conditions;
-import com.sensesai.sql.model.InCondition;
-import com.sensesai.sql.model.Model;
+import com.youngdatafan.sqlbuilder.enums.Cp;
+import com.youngdatafan.sqlbuilder.enums.Op;
+import com.youngdatafan.sqlbuilder.exception.SQLBuildException;
+import com.youngdatafan.sqlbuilder.model.BinaryCondition;
+import com.youngdatafan.sqlbuilder.model.Condition;
+import com.youngdatafan.sqlbuilder.model.Conditions;
+import com.youngdatafan.sqlbuilder.model.InCondition;
+import com.youngdatafan.sqlbuilder.model.Model;
 
 /**
  * 模型工厂类.

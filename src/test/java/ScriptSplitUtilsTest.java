@@ -1,4 +1,4 @@
-import com.sensesai.sql.util.ScriptSplitUtils;
+import com.youngdatafan.sqlbuilder.util.ScriptSplitUtils;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 

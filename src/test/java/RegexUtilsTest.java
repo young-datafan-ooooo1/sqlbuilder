@@ -1,4 +1,4 @@
-import com.sensesai.sql.util.RegexUtils;
+import com.youngdatafan.sqlbuilder.util.RegexUtils;
 import org.junit.Test;
 
 /**

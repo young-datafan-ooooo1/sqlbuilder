@@ -1,5 +1,5 @@
-import com.sensesai.sql.enums.*;
-import com.sensesai.sql.model.*;
+import com.youngdatafan.sqlbuilder.enums.*;
+import com.youngdatafan.sqlbuilder.model.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
