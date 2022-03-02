@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.youngdatafan.sqlbuilder.exception.SQLBuildException;
 import com.youngdatafan.sqlbuilder.function.FunctionCheckDefinition;
 import org.apache.commons.io.IOUtils;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
 import java.util.HashMap;

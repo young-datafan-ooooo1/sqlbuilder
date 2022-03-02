@@ -14,7 +14,6 @@ import com.youngdatafan.sqlbuilder.model.CustomSql;
 import com.youngdatafan.sqlbuilder.model.Function;
 import com.youngdatafan.sqlbuilder.model.Model;
 import org.apache.commons.io.IOUtils;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;

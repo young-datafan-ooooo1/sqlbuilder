@@ -19,7 +19,6 @@
         <fastjson.version>1.2.66</fastjson.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <junit.version>4.13.1</junit.version>
-        <spring.version>5.3.2</spring.version>
         <calcite.version>1.26.0</calcite.version>
         <guava.version>29.0-jre</guava.version>
 
@@ -90,11 +89,6 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback-classic.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <!-- junit -->
         <dependency>

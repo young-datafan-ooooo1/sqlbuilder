@@ -5,7 +5,6 @@ import com.youngdatafan.sqlbuilder.enums.DateFormatType;
 import com.youngdatafan.sqlbuilder.enums.TimeUnitType;
 import com.youngdatafan.sqlbuilder.exception.SQLBuildException;
 import org.apache.commons.io.IOUtils;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
 import java.util.Objects;
@@ -31,7 +30,7 @@ public class PropertyUtils {
     /**
      * 数据库配置信息.
      */
-    private static volatile Properties properties;
+    private static final Properties properties;
 
     /**
      * 加载配置文件.
@@ -104,6 +103,10 @@ public class PropertyUtils {
      * @return 配置文件对应的code
      */
     private static String getDateFormatTypePropertyCode(DateFormatType dateFormatType) {
+        if (dateFormatType == null) {
+            return "";
+        }
+
         switch (dateFormatType) {
             case YYYY_MM_DD_HH24_MI_SS:
                 return "1";
