@@ -30,7 +30,7 @@ public class PropertyUtils {
     /**
      * 数据库配置信息.
      */
-    private static final Properties properties;
+    private static final Properties PROPERTIES;
 
     /**
      * 加载配置文件.
@@ -41,8 +41,8 @@ public class PropertyUtils {
         try {
             ClassPathResource resource = new ClassPathResource(filename);
             is = resource.getInputStream();
-            properties = new Properties();
-            properties.load(is);
+            PROPERTIES = new Properties();
+            PROPERTIES.load(is);
         } catch (Exception e) {
             throw new SQLBuildException("加载数据库配置文件失败", e);
         } finally {
@@ -132,7 +132,7 @@ public class PropertyUtils {
      * @return 值
      */
     private static String getValue(String key) {
-        Object o = properties.get(key);
+        Object o = PROPERTIES.get(key);
         if (Objects.nonNull(o)) {
             return String.valueOf(o);
         }
