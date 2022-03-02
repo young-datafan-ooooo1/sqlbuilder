@@ -7,16 +7,7 @@ import lombok.Data;
 import lombok.Getter;
 import org.apache.calcite.avatica.util.Quoting;
 import org.apache.calcite.config.Lex;
-import org.apache.calcite.sql.SqlBasicCall;
-import org.apache.calcite.sql.SqlIdentifier;
-import org.apache.calcite.sql.SqlJoin;
-import org.apache.calcite.sql.SqlKind;
-import org.apache.calcite.sql.SqlLiteral;
-import org.apache.calcite.sql.SqlNode;
-import org.apache.calcite.sql.SqlNodeList;
-import org.apache.calcite.sql.SqlOperator;
-import org.apache.calcite.sql.SqlOrderBy;
-import org.apache.calcite.sql.SqlSelect;
+import org.apache.calcite.sql.*;
 import org.apache.calcite.sql.fun.SqlCase;
 import org.apache.calcite.sql.parser.SqlParser;
 import org.apache.calcite.sql.parser.SqlParserPos;
@@ -27,14 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * sql解析器.
+ * 表名替换sql解析器.
  *
  * @author yinkaifeng
  * @since 2021-09-24 6:13 下午
  */
 @Data
-public class StellaSqlParser {
-    private static final Logger LOGGER = LoggerFactory.getLogger(StellaSqlParser.class);
+public class TableNameReplaceSqlParser {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TableNameReplaceSqlParser.class);
 
     private SqlParser.Config config = SqlParser.configBuilder()
             .setLex(Lex.MYSQL)
@@ -61,7 +52,7 @@ public class StellaSqlParser {
      * @param oldTableName 旧表名
      * @param newTableName 新表名
      */
-    public StellaSqlParser(String oldTableName, String newTableName) {
+    public TableNameReplaceSqlParser(String oldTableName, String newTableName) {
         this("", oldTableName, newTableName);
     }
 
@@ -72,7 +63,7 @@ public class StellaSqlParser {
      * @param oldTableName 旧表名
      * @param newTableName 新表名
      */
-    public StellaSqlParser(String quotingStr, String oldTableName, String newTableName) {
+    public TableNameReplaceSqlParser(String quotingStr, String oldTableName, String newTableName) {
         if (Utils.isEmpty(oldTableName)) {
             throw new SQLBuildException("旧表名不能为空");
         }
@@ -438,7 +429,7 @@ public class StellaSqlParser {
         GROUP_BY,
         HAVING,
         ORDER_BY,
-        OTHER;
+        OTHER
     }
 
     /**
@@ -449,12 +440,12 @@ public class StellaSqlParser {
         /**
          * 待替换节点在names中的位置.
          */
-        private int index;
+        private final int index;
 
         /**
          * 待替换节点.
          */
-        private SqlIdentifier sqlIdentifier;
+        private final SqlIdentifier sqlIdentifier;
 
         ReplaceNode(int index, SqlIdentifier sqlIdentifier) {
             this.index = index;

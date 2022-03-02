@@ -1,6 +1,6 @@
 package com.youngdatafan.sqlbuilder.util;
 
-import com.youngdatafan.sqlbuilder.parser.StellaSqlParser;
+import com.youngdatafan.sqlbuilder.parser.TableNameReplaceSqlParser;
 
 /**
  * 表名替换工具类.
@@ -20,7 +20,7 @@ public class TableNameReplaceUtils {
      * @return 替换后的sql
      */
     public static String replace(String quotingStr, String sql, String oldTableName, String newTableName) {
-        StellaSqlParser stellaSqlParser = new StellaSqlParser(quotingStr, oldTableName, newTableName);
-        return stellaSqlParser.replace(sql);
+        TableNameReplaceSqlParser tableNameReplaceSqlParser = new TableNameReplaceSqlParser(quotingStr, oldTableName, newTableName);
+        return tableNameReplaceSqlParser.replace(sql);
     }
 }

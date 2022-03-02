@@ -1,4 +1,4 @@
-import com.youngdatafan.sqlbuilder.parser.StellaSqlParser;
+import com.youngdatafan.sqlbuilder.parser.TableNameReplaceSqlParser;
 import org.apache.calcite.config.Lex;
 import org.apache.calcite.sql.SqlNode;
 import org.apache.calcite.sql.parser.SqlParseException;
@@ -13,18 +13,18 @@ import org.junit.Test;
  * @author yinkaifeng
  * @since 2021-09-24 5:38 下午
  */
-public class TableReplaceTest {
+public class TableNameReplaceSqlParserTest {
     private final SqlParser.Config config = SqlParser.configBuilder()
             .setLex(Lex.MYSQL)
             .build();
 
-    private StellaSqlParser stellaSqlParser;
+    private TableNameReplaceSqlParser tableNameReplaceSqlParser;
 
     private String sql;
 
     @Before
     public void before() {
-        stellaSqlParser = new StellaSqlParser("test", "test_copy1");
+        tableNameReplaceSqlParser = new TableNameReplaceSqlParser("test", "test_copy1");
     }
 
     @After
@@ -34,7 +34,7 @@ public class TableReplaceTest {
         System.out.println("源sql：");
         System.out.println(sql);
 
-        String replace = stellaSqlParser.replace(sql);
+        String replace = tableNameReplaceSqlParser.replace(sql);
         System.out.println("替换后的sql：");
         System.out.println(replace);
     }
@@ -77,7 +77,7 @@ public class TableReplaceTest {
 
     @Test
     public void testKeyword() {
-        stellaSqlParser = new StellaSqlParser("INTERVAL", "test_copy1");
+        tableNameReplaceSqlParser = new TableNameReplaceSqlParser("INTERVAL", "test_copy1");
         sql = "select  date_add( t.create_date, INTERVAL 1 YEAR ) from `INTERVAL` t";
     }
 
