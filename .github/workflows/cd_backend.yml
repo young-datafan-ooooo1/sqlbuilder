@@ -18,9 +18,15 @@
 name: Backend-Deploy
 
 on:
-  pull_request_target:
-    types:
-      - closed
+  push:
+    paths:
+      - '.github/workflows/ci_backend.yml'
+      - 'package.xml'
+      - 'pom.xml'
+      - '.gitignore'
+      - 'README.md'
+      - 'src/**'
+      - 'style/**'
 
 jobs:
   Deploy:
