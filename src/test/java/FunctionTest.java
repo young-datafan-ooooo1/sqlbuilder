@@ -41,11 +41,8 @@ public class FunctionTest {
 
     @After
     public void after() {
-        query.addFrom(test);
-        System.out.println("mysql：");
-        System.out.println(query.getDatabaseSql(DatabaseType.MYSQL));
-        System.out.println();
 
+        query.addFrom(test);
         System.out.println("oracle：");
         System.out.println(query.getDatabaseSql(DatabaseType.ORACLE));
         System.out.println();
@@ -54,16 +51,20 @@ public class FunctionTest {
         System.out.println(query.getDatabaseSql(DatabaseType.POSTGRESQL));
         System.out.println();
 
-        System.out.println("kdw：");
-        System.out.println(query.getDatabaseSql(DatabaseType.KDW));
-        System.out.println();
-
         System.out.println("clickhouse：");
         System.out.println(query.getDatabaseSql(DatabaseType.CLICKHOUSE));
         System.out.println();
 
+        System.out.println("mysql：");
+        System.out.println(query.getDatabaseSql(DatabaseType.MYSQL));
+        System.out.println();
+
         System.out.println("sqlserver：");
         System.out.println(query.getDatabaseSql(DatabaseType.MSSQL));
+        System.out.println();
+
+        System.out.println("kdw：");
+        System.out.println(query.getDatabaseSql(DatabaseType.KDW));
         System.out.println();
 
         System.out.println("spark：");
@@ -446,5 +447,184 @@ public class FunctionTest {
         query.addColumn("currentMonth" + "Val", currentMonth);
         query.addColumn("currentWeek" + "Val", currentWeek);
         query.addColumn("currentDay" + "Val", currentDay);
+    }
+
+    /**
+     *
+     * 取反函数测试.
+     */
+    @Test
+    public void testNot() {
+        Model model = CustomSql.getCustomSql("1>0");
+        Function function = Function.getFunction(FunctionType.NOT, model);
+        query.addColumn("not_val", function);
+    }
+
+    /**
+     * 校验次方函数.
+     */
+    @Test
+    public void testExp() {
+        Model model = CustomSql.getCustomSql("2");
+        Model model1 = CustomSql.getCustomSql("3");
+        Function power = Function.getFunction(FunctionType.POWER, model, model1);
+        Function e = Function.getFunction(FunctionType.E);
+        Function pi = Function.getFunction(FunctionType.PI);
+        Function exp = Function.getFunction(FunctionType.EXP, model);
+        Function exp2 = Function.getFunction(FunctionType.EXP2, model);
+        Function exp10 = Function.getFunction(FunctionType.EXP10, model);
+        Function log = Function.getFunction(FunctionType.LOG, model);
+        Function log2 = Function.getFunction(FunctionType.LOG2, model);
+        Function log10 = Function.getFunction(FunctionType.LOG10, model);
+        Function sqrt = Function.getFunction(FunctionType.SQRT, model);
+        Function cbrt = Function.getFunction(FunctionType.CBRT, model);
+        query.addColumn("power_val", power);
+        query.addColumn("e_val", e);
+        query.addColumn("pi_val", pi);
+        query.addColumn("exp_val", exp);
+        query.addColumn("exp2_val", exp2);
+        query.addColumn("exp10_val", exp10);
+        query.addColumn("log_val", log);
+        query.addColumn("log2_val", log2);
+        query.addColumn("log10_val", log10);
+        query.addColumn("sqrt_val", sqrt);
+        query.addColumn("cbrt_val", cbrt);
+    }
+
+    /**
+     * 校验类型转换的函数.
+     */
+    @Test
+    public void testConversion() {
+        Model model = CustomSql.getCustomSql("11.23799");
+        Model model1 = CustomSql.getCustomSql("3");
+        Function toChar = Function.getFunction(FunctionType.NUMBER_CHAR, model);
+        Function toInt = Function.getFunction(FunctionType.TO_INT, model);
+        Function toDecimal = Function.getFunction(FunctionType.TO_DECIMAL, model, model1);
+        query.addColumn(toChar);
+        query.addColumn(toInt);
+        query.addColumn(toDecimal);
+    }
+
+    /**
+     * 校验日期格式转换类函数.
+     */
+    @Test
+    public void testDateFormatNew() {
+        Model model = Function.getFunction(FunctionType.CURRENT_DATE);
+        Function yesterday = Function.getFunction(FunctionType.YESTERDAY);
+        Function year = Function.getFunction(FunctionType.YEAR, model);
+        Function quarter = Function.getFunction(FunctionType.QUARTER, model);
+        Function month = Function.getFunction(FunctionType.MONTH, model);
+        Function weekday = Function.getFunction(FunctionType.WEEKDAY, model);
+        Function day = Function.getFunction(FunctionType.DAY, model);
+        Function hour = Function.getFunction(FunctionType.HOUR, model);
+        Function minute = Function.getFunction(FunctionType.MINUTE, model);
+        Function second = Function.getFunction(FunctionType.SECOND, model);
+        Function year_month = Function.getFunction(FunctionType.YEAR_MONTH, model);
+        query.addColumn(yesterday);
+        query.addColumn(year);
+        query.addColumn(quarter);
+        query.addColumn(month);
+        query.addColumn(weekday);
+        query.addColumn(day);
+        query.addColumn(hour);
+        query.addColumn(minute);
+        query.addColumn(second);
+        query.addColumn(year_month);
+    }
+
+    @Test
+    public void testWeightedMean() {
+        Function function = Function.getFunction(FunctionType.WEIGHTED_MEAN, id, salary);
+        query.addColumn(function);
+    }
+
+    /**
+     * 构建mysql分组求中位数sql.
+     * SELECT s.id,s.`name`
+     * FROM
+     * (
+     *  SELECT test_user.`name`,test_user.id,IF(@p=CONCAT(`name`),@r:=@r+1,@r:=1) AS rank,
+     * @p:=CONCAT(`name`)
+     * FROM test_user,(SELECT @p:=NULL,@r:=0)r
+     *
+     *  ORDER BY `name` desc
+     *  )s left join (
+     *    select count(1) num, `name` from test_user GROUP BY `name`
+     *
+     *  ) as f
+     *  on s.`name`=f.`name`
+     *  where rank = ROUND(num*0.5)
+     */
+    @Test
+    public void zws() {
+        Function function = Function.getFunction(FunctionType.MEDIAN, id);
+        query.addColumn(function);
+        query.addFrom(test);
+    }
+
+    public Query ranking() {
+        Query rankingInit = rankingInit();
+        rankingInit.setAlias("r");
+        Query query = new Query();
+        Schema schema = Schema.getSchema("");
+        Table test_user = Table.getOriginalTable(schema, "test_user", "t");
+        query.addFrom(test_user);
+        query.addFrom(rankingInit);
+        String databaseSql = query.getDatabaseSql(DatabaseType.MYSQL);
+        System.out.println(databaseSql);
+        Field nameField = Field.getField(test_user, "name");
+        Function concat = Function.getFunction(FunctionType.CONCAT, nameField);
+
+        return query;
+    }
+
+    /**
+     * SELECT @p:=NULL,@r:=0.
+     * @return
+     */
+    public Query rankingInit() {
+        Query query = new Query();
+        Model init1 = CustomSql.getCustomSql("@p:=NULL");
+        Model init2 = CustomSql.getCustomSql("@r:=0");
+        query.addColumn(init1, init2);
+        String databaseSql = query.getDatabaseSql(DatabaseType.MYSQL);
+        System.out.println(databaseSql);
+
+        return query;
+    }
+
+    /**
+     * select count(1) num, `name` from test_user GROUP BY `name`.
+     * @return
+     */
+    public Query count() {
+        Query count = new Query();
+        Schema schema = Schema.getSchema("");
+        Table test_user = Table.getOriginalTable(schema, "test_user", "t");
+        count.addFrom(test_user);
+
+        Model model = CustomSql.getCustomSql("*");
+        Function countFunction = Function.getFunction(FunctionType.COUNT, model);
+        count.addColumn("num", countFunction);
+        Field nameField = Field.getField(test_user, "name");
+        count.addGroupBy(nameField);
+
+        String databaseSql = count.getDatabaseSql(DatabaseType.MYSQL);
+        System.out.println(databaseSql);
+
+        return count;
+    }
+
+    /**
+     * 方差跟标准差.
+     */
+    @Test
+    public void varSampAndStddevSamp() {
+        Function varSamp = Function.getFunction(FunctionType.VAR_SAMP, id);
+        Function stddevSamp = Function.getFunction(FunctionType.STDDEV_SAMP, id);
+        query.addColumn(varSamp);
+        query.addColumn(stddevSamp);
     }
 }
