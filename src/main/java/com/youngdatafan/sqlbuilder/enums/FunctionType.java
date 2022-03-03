@@ -106,10 +106,10 @@ public enum FunctionType {
     DECODE("decode", ""),
     MONTHS_BETWEEN("months_between", ""),
 
-    NUMBER_CHAR("number_char" ,"转成字符串"),
+    NUMBER_CHAR("number_char", "转成字符串"),
     TO_DECIMAL("to_decimal", "转成小数"),
-    TO_INT("to_int", "转成整数"),
-    ;
+    TO_INT("to_int", "转成整数");
+
     /**
      * 代码.
      */
