@@ -52,5 +52,5 @@ jobs:
           server-id: github
           server-username: ${{ secrets.SONATYPE_NAME }}
           server-password: ${{ secrets.SONATYPE_PWD }}
-      - name: Compile
+      - name: Deploy
         run: mvn clean deploy -Dmaven.test.skip=true
