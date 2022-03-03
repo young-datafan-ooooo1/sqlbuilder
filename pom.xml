@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.young-datafan</groupId>
+    <groupId>com.young-datafan</groupId>
     <artifactId>sqlbuilder</artifactId>
     <version>1.4.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -19,7 +19,6 @@
         <fastjson.version>1.2.66</fastjson.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <junit.version>4.13.1</junit.version>
-        <spring.version>5.3.2</spring.version>
         <calcite.version>1.26.0</calcite.version>
         <guava.version>29.0-jre</guava.version>
 
@@ -61,6 +60,7 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
+            <optional>true</optional>
         </dependency>
         <!--commons-io工具包 -->
         <dependency>
@@ -89,11 +89,6 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback-classic.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <!-- junit -->
         <dependency>

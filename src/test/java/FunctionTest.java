@@ -1,11 +1,8 @@
-import com.sensesai.sql.enums.DataType;
-import com.sensesai.sql.enums.DatabaseType;
-import com.sensesai.sql.enums.DateFormatType;
-import com.sensesai.sql.enums.FunctionType;
-import com.sensesai.sql.enums.SortType;
-import com.sensesai.sql.enums.TimeUnitType;
-import com.sensesai.sql.model.*;
-import java.io.File;
+import com.youngdatafan.sqlbuilder.enums.DatabaseType;
+import com.youngdatafan.sqlbuilder.enums.DateFormatType;
+import com.youngdatafan.sqlbuilder.enums.FunctionType;
+import com.youngdatafan.sqlbuilder.enums.TimeUnitType;
+import com.youngdatafan.sqlbuilder.model.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -54,12 +51,9 @@ public class FunctionTest {
         System.out.println(query.getDatabaseSql(DatabaseType.POSTGRESQL));
         System.out.println();
 
-
-
         System.out.println("clickhouse：");
         System.out.println(query.getDatabaseSql(DatabaseType.CLICKHOUSE));
         System.out.println();
-
 
         System.out.println("mysql：");
         System.out.println(query.getDatabaseSql(DatabaseType.MYSQL));

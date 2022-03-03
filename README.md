@@ -57,8 +57,8 @@ List<PrecompileParameterVo> precompileParameterVoList = query.getPrecompileParam
 
 ## 替换sql中的表名，例如：
 ```
-StellaSqlParser stellaSqlParser = new StellaSqlParser("`", "test", "test_copy1");
-String replace = stellaSqlParser.replace(sql);
+StellaSqlParser tableNameReplaceSqlParser = new StellaSqlParser("`", "test", "test_copy1");
+String replace = tableNameReplaceSqlParser.replace(sql);
 System.out.println("替换后的sql：");
 System.out.println(replace);
 ```
