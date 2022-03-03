@@ -231,19 +231,29 @@ public class FunctionUtils {
     /**
      * 判断字符串是否匹配.
      *
-     * @param regexTye 匹配类型
+     * @param regexTypes 匹配类型
      * @param str      字符串
      * @return 是否匹配
      */
-    private static boolean isMatchRegex(String regexTye, String str) {
-        switch (regexTye.toLowerCase()) {
-            case "int":
-                return RegexUtils.isMatchInt(str);
-            case "number":
-                return RegexUtils.isMatchNumber(str);
-            default:
-                return true;
+    private static boolean isMatchRegex(String regexTypes, String str) {
+        String[] regexTypeArr = regexTypes.split(";");
+        boolean sign = true;
+        for (String regexType : regexTypeArr) {
+            switch (regexType.toLowerCase()) {
+                case "int":
+                    sign = RegexUtils.isMatchInt(str);
+                    break;
+                case "number":
+                    sign = RegexUtils.isMatchNumber(str);
+                    break;
+                default:
+                    sign = true;
+            }
+            if (sign) {
+                break;
+            }
         }
+        return sign;
     }
 
     /**

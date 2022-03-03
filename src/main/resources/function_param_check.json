@@ -432,5 +432,233 @@
         "checkRegexType": ["datetime","date","timestamp"]
       }
     ]
+  },
+  {
+    "name": "exp",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "exp2",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "exp10",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "log",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "log2",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "log10",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "sqrt",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "cbrt",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "to_int",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
+  },
+  {
+    "name": "to_decimal",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": "number"
+      },
+      {
+        "checkRegexType": "number"
+      }
+    ]
+  },
+  {
+    "name": "year",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "quarter",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "month",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "weekday",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "day",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "hour",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["time", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "minute",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["time", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "second",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["time", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "year_month",
+    "min": 1,
+    "max": 1,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "weighted_mean",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": "number",
+        "checkMsg": "参数必须为数字"
+      },
+      {
+        "checkRegexType": "number",
+        "checkMsg": "参数必须为数字"
+      }
+    ]
   }
 ]

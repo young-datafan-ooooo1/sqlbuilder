@@ -16,6 +16,17 @@ public enum FunctionType {
     DIV("/", "除"),
     POWER("power", "求数的n次方"),
     PERCENTAGE("percentage", "百分比"),
+    NOT("not", "取反"),
+    E("e", "e的值"),
+    PI("pi", "pi的值"),
+    EXP("exp", "e的X次方"),
+    EXP2("exp2", "2的X次方"),
+    EXP10("exp10", "10的次方"),
+    LOG("log", "log以e为底的对数值"),
+    LOG2("log2", "log以2为底的对数值"),
+    LOG10("log10", "log以10为底的对数值"),
+    SQRT("sqrt", "开平方"),
+    CBRT("cbrt", "开立方"),
 
     COUNT("count", "计算"),
     COUNT_DISTINCT("count_distinct", "去重计算"),
@@ -23,6 +34,10 @@ public enum FunctionType {
     MIN("min", "最小值"),
     SUM("sum", "求和"),
     AVG("avg", "求平均值"),
+    WEIGHTED_MEAN("weighted_mean", "加权平均"),
+    MEDIAN("median", "中位数"),
+    STDDEV_SAMP("stddev_samp", "标准差"),
+    VAR_SAMP("var_samp", "方差"),
 
     ABS("abs", "求绝对值"),
     MOD("mod", "取余"),
@@ -44,6 +59,7 @@ public enum FunctionType {
     LEFT_SUBSTR("lsubstr", "从左侧截取字符串"),
     RIGHT_SUBSTR("rsubstr", "从右侧截取字符串"),
     INSTR("instr", "查找字符串位置"),
+    GROUP_CONCAT("group_concat", "分组拼接"),
 
     DATE_TO_STRING("to_char", "日期转字符"),
     STRING_TO_DATE("to_date", "字符串转日期"),
@@ -76,11 +92,24 @@ public enum FunctionType {
     CURRENT_MONTH("current_month", "当前月"),
     CURRENT_WEEK("current_week", "当前周"),
     CURRENT_DAY("current_day", "当前日"),
-
+    YESTERDAY("yesterday", "昨日"),
+    YEAR("year", "年份"),
+    QUARTER("quarter", "季度"),
+    MONTH("month", "月"),
+    WEEKDAY("weekday", "周天数"),
+    DAY("day", "天"),
+    HOUR("hour", "小时"),
+    MINUTE("minute", "分钟"),
+    SECOND("second", "秒"),
+    YEAR_MONTH("year_month", "年月"),
 
     DECODE("decode", ""),
-    MONTHS_BETWEEN("months_between", "");
+    MONTHS_BETWEEN("months_between", ""),
 
+    NUMBER_CHAR("number_char" ,"转成字符串"),
+    TO_DECIMAL("to_decimal", "转成小数"),
+    TO_INT("to_int", "转成整数"),
+    ;
     /**
      * 代码.
      */
