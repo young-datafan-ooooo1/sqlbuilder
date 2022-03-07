@@ -68,7 +68,12 @@ public enum Op {
     /**
      * (" IS NOT NULL ").
      */
-    NOT_NULL("IS NOT NULL", "是否不为null");
+    NOT_NULL("IS NOT NULL", "是否不为null"),
+
+    /**
+     * ("BETWEEN #1 and #2").
+     */
+    BETWEEN("BETWEEN", "倆着之间");
 
     /**
      * 代码.
