@@ -539,10 +539,10 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": "number"
+        "checkRegexType": ["number"]
       },
       {
-        "checkRegexType": "number"
+        "checkRegexType": ["number"]
       }
     ]
   },
@@ -591,7 +591,7 @@
     ]
   },
   {
-    "name": "day",
+    "name": "to_day",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -602,7 +602,7 @@
     ]
   },
   {
-    "name": "hour",
+    "name": "to_hour",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -613,7 +613,7 @@
     ]
   },
   {
-    "name": "minute",
+    "name": "to_minute",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -624,7 +624,7 @@
     ]
   },
   {
-    "name": "second",
+    "name": "to_second",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -652,12 +652,10 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": "number",
-        "checkMsg": "参数必须为数字"
+        "checkRegexType": ["number"]
       },
       {
-        "checkRegexType": "number",
-        "checkMsg": "参数必须为数字"
+        "checkRegexType": ["number"]
       }
     ]
   }
