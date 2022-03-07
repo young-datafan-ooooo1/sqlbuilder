@@ -891,7 +891,7 @@
       ]
     },
     {
-      "name": "day",
+      "name": "to_day",
       "function": "EXTRACT(DAY FROM #1)",
       "describe": "月天数",
       "paramSizeType": "fixed",
@@ -905,7 +905,7 @@
       ]
     },
     {
-      "name": "hour",
+      "name": "to_hour",
       "function": "EXTRACT(HOUR from #1)",
       "describe": "小时",
       "paramSizeType": "fixed",
@@ -919,7 +919,7 @@
       ]
     },
     {
-      "name": "minute",
+      "name": "to_minute",
       "function": "EXTRACT(MINUTE from #1)",
       "describe": "分钟",
       "paramSizeType": "fixed",
@@ -933,7 +933,7 @@
       ]
     },
     {
-      "name": "second",
+      "name": "to_second",
       "function": "EXTRACT(SECOND from #1)",
       "describe": "秒",
       "paramSizeType": "fixed",
