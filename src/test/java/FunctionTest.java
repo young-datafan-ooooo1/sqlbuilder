@@ -627,4 +627,10 @@ public class FunctionTest {
         query.addColumn(varSamp);
         query.addColumn(stddevSamp);
     }
+
+    @Test
+    public void testCountALL() {
+        Function function = Function.getFunction(FunctionType.COUNT_ANY);
+        query.addColumn(function);
+    }
 }

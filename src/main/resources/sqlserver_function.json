@@ -954,6 +954,15 @@
       "paramMinSize": 1,
       "paramMaxSize": 1,
       "params": []
+    },
+    {
+      "name": "count_any",
+      "function": "COUNT(1)",
+      "describe": "计算所有",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
     }
   ]
 }

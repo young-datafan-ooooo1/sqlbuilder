@@ -30,6 +30,7 @@ public enum FunctionType {
 
     COUNT("count", "计算"),
     COUNT_DISTINCT("count_distinct", "去重计算"),
+    COUNT_ANY("count_any", "计算所有"),
     MAX("max", "最大值"),
     MIN("min", "最小值"),
     SUM("sum", "求和"),
