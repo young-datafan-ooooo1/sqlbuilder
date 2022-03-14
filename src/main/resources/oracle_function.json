@@ -672,7 +672,7 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -686,7 +686,7 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -700,7 +700,7 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -714,7 +714,7 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -728,7 +728,7 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -742,7 +742,7 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -756,7 +756,7 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -770,13 +770,13 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
     },
     {
-      "name": "number_char",
+      "name": "toString",
       "function": " TO_CHAR(#1) ",
       "describe": "转成字符串",
       "paramSizeType": "fixed",
@@ -785,7 +785,7 @@
       "params": []
     },
     {
-      "name": "to_int",
+      "name": "toUInt8OrZero",
       "function": "TRUNC(#1,0)",
       "describe": "转成整数",
       "paramSizeType": "fixed",
@@ -793,25 +793,25 @@
       "paramMaxSize": 1,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
     },
     {
-      "name": "to_decimal",
+      "name": "toDecimal64",
       "function": "ROUND(#1, #2)",
-      "describe": "转成整数",
+      "describe": "转成小数",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
       "paramMaxSize": 2,
       "params": [
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         },
         {
-          "checkRegexType": "number",
+          "checkRegexType": "number;integer;bigNumber",
           "checkMsg": "参数必须为数字"
         }
       ]
@@ -826,7 +826,7 @@
       "params": []
     },
     {
-      "name": "year",
+      "name": "toYear",
       "function": "extract(year from #1)",
       "describe": "年份",
       "paramSizeType": "fixed",
@@ -840,7 +840,7 @@
       ]
     },
     {
-      "name": "quarter",
+      "name": "toQuarter",
       "function": "TO_CHAR(#1, 'Q')",
       "describe": "季度",
       "paramSizeType": "fixed",
@@ -854,7 +854,7 @@
       ]
     },
     {
-      "name": "month",
+      "name": "toMonth",
       "function": "EXTRACT(MONTH FROM #1)",
       "describe": "月",
       "paramSizeType": "fixed",
@@ -868,9 +868,9 @@
       ]
     },
     {
-      "name": "weekday",
+      "name": "toDayOfWeek",
       "function": "TO_CHAR(#1 + NUMTODSINTERVAL(-1,'DAY'),'D')",
-      "describe": "周天",
+      "describe": "周天数",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
       "paramMaxSize": 1,
@@ -882,7 +882,21 @@
       ]
     },
     {
-      "name": "to_day",
+      "name": "toWeek",
+      "function": "to_char(#1 ,'ww')",
+      "describe": "周数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "date;datetime;timestamp;string",
+          "checkMsg": "参数必须为日期"
+        }
+      ]
+    },
+    {
+      "name": "toDayOfMonth",
       "function": "TO_NUMBER(TO_CHAR(#1,'dd'))",
       "describe": "月天数",
       "paramSizeType": "fixed",
@@ -896,7 +910,7 @@
       ]
     },
     {
-      "name": "to_hour",
+      "name": "toHour",
       "function": "TO_NUMBER(TO_CHAR(#1,'hh24'))",
       "describe": "小时",
       "paramSizeType": "fixed",
@@ -910,7 +924,7 @@
       ]
     },
     {
-      "name": "to_minute",
+      "name": "toMinute",
       "function": "TO_NUMBER(TO_CHAR(#1, 'MI'))",
       "describe": "分钟",
       "paramSizeType": "fixed",
@@ -924,7 +938,7 @@
       ]
     },
     {
-      "name": "to_second",
+      "name": "toSecond",
       "function": "TO_NUMBER(TO_CHAR(#1, 'SS'))",
       "describe": "秒",
       "paramSizeType": "fixed",
@@ -938,7 +952,7 @@
       ]
     },
     {
-      "name": "year_month",
+      "name": "formatDate_Y_M",
       "function": "TO_CHAR(#1,'yyyy-MM')",
       "describe": "年月",
       "paramSizeType": "fixed",

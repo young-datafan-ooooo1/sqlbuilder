@@ -521,7 +521,8 @@ public class FunctionTest {
         Function hour = Function.getFunction(FunctionType.HOUR, model);
         Function minute = Function.getFunction(FunctionType.MINUTE, model);
         Function second = Function.getFunction(FunctionType.SECOND, model);
-        Function year_month = Function.getFunction(FunctionType.YEAR_MONTH, model);
+        Function year_month = Function.getFunction(FunctionType.FORMAT_DATE_Y_M, model);
+        Function week = Function.getFunction(FunctionType.WEEK, model);
         query.addColumn(yesterday);
         query.addColumn(year);
         query.addColumn(quarter);
@@ -532,6 +533,7 @@ public class FunctionTest {
         query.addColumn(minute);
         query.addColumn(second);
         query.addColumn(year_month);
+        query.addColumn(week);
     }
 
     @Test

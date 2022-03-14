@@ -94,22 +94,23 @@ public enum FunctionType {
     CURRENT_WEEK("current_week", "当前周"),
     CURRENT_DAY("current_day", "当前日"),
     YESTERDAY("yesterday", "昨日"),
-    YEAR("year", "年份"),
-    QUARTER("quarter", "季度"),
-    MONTH("month", "月"),
-    WEEKDAY("weekday", "周天数"),
-    DAY("to_day", "天"),
-    HOUR("to_hour", "小时"),
-    MINUTE("to_minute", "分钟"),
-    SECOND("to_second", "秒"),
-    YEAR_MONTH("year_month", "年月"),
+    YEAR("toYear", "年份"),
+    QUARTER("toQuarter", "季度"),
+    MONTH("toMonth", "月"),
+    WEEK("toWeek", "周数"),
+    WEEKDAY("toDayOfWeek", "周天数"),
+    DAY("toDayOfMonth", "天"),
+    HOUR("toHour", "小时"),
+    MINUTE("toMinute", "分钟"),
+    SECOND("toSecond", "秒"),
+    FORMAT_DATE_Y_M("formatDate_Y_M", "年月"),
 
     DECODE("decode", ""),
     MONTHS_BETWEEN("months_between", ""),
 
-    NUMBER_CHAR("number_char", "转成字符串"),
-    TO_DECIMAL("to_decimal", "转成小数"),
-    TO_INT("to_int", "转成整数");
+    NUMBER_CHAR("toString", "转成字符串"),
+    TO_DECIMAL("toDecimal64", "转成小数"),
+    TO_INT("toUInt8OrZero", "转成整数");
 
     /**
      * 代码.

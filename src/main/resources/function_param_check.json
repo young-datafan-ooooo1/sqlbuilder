@@ -440,7 +440,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
@@ -451,7 +451,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
@@ -462,7 +462,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
@@ -473,7 +473,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
@@ -484,7 +484,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
@@ -495,7 +495,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
@@ -506,7 +506,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
@@ -517,29 +517,29 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
   {
-    "name": "to_int",
+    "name": "toUInt8OrZero",
     "min": 1,
     "max": 1,
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       }
     ]
   },
   {
-    "name": "to_decimal",
+    "name": "toDecimal64",
     "min": 2,
     "max": 2,
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber"]
       },
       {
         "checkRegexType": ["number"]
@@ -547,7 +547,7 @@
     ]
   },
   {
-    "name": "year",
+    "name": "toYear",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -558,7 +558,7 @@
     ]
   },
   {
-    "name": "quarter",
+    "name": "toQuarter",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -569,7 +569,7 @@
     ]
   },
   {
-    "name": "month",
+    "name": "toMonth",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -580,7 +580,7 @@
     ]
   },
   {
-    "name": "weekday",
+    "name": "toDayOfWeek",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -591,7 +591,7 @@
     ]
   },
   {
-    "name": "to_day",
+    "name": "toWeek",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -602,7 +602,18 @@
     ]
   },
   {
-    "name": "to_hour",
+    "name": "toDayOfMonth",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toHour",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -613,7 +624,7 @@
     ]
   },
   {
-    "name": "to_minute",
+    "name": "toMinute",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -624,7 +635,7 @@
     ]
   },
   {
-    "name": "to_second",
+    "name": "toSecond",
     "min": 1,
     "max": 1,
     "returnType": "number",
@@ -635,7 +646,7 @@
     ]
   },
   {
-    "name": "year_month",
+    "name": "formatDate_Y_M",
     "min": 1,
     "max": 1,
     "returnType": "string",
