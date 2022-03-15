@@ -484,9 +484,45 @@
       ]
     },
     {
+      "name": "timestampToChar",
+      "function": "TO_CHAR(#1,#2)",
+      "describe": "时间戳转字符",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
       "name": "to_date",
       "function": "TO_DATE(#1,#2)",
       "describe": "字符串转日期",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "",
+          "checkMsg": ""
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "toTimestamp",
+      "function": "TO_DATE(#1,#2)",
+      "describe": "时间戳串转日期",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
       "paramMaxSize": 2,
@@ -967,7 +1003,7 @@
     },
     {
       "name": "weighted_mean",
-      "function": "SUM(#1*#2)/COUNT(#2)",
+      "function": "SUM(#1*#2)/SUM(#2)",
       "describe": "加权平均",
       "paramSizeType": "fixed",
       "paramMinSize": 2,

@@ -635,4 +635,16 @@ public class FunctionTest {
         Function function = Function.getFunction(FunctionType.COUNT_ANY);
         query.addColumn(function);
     }
+
+
+    @Test
+    public void testTime() {
+        CustomSql datetime = CustomSql.getCustomSql("'2021-01-01 18:01:01'");
+        CustomSql datetimeFormat = CustomSql.getCustomSql(DateFormatType.YYYY_MM_DD_HH24_MI_SS.getCode());
+        Function timeFunction2 = Function.getFunction(FunctionType.TIMESTAMP_TO_STRING, datetime, datetimeFormat);
+        Function timeFunction1 = Function.getFunction(FunctionType.STRING_TO_TIMESTAMP, datetime, datetimeFormat);
+
+        query.addColumn("valDateTime", timeFunction2);
+        query.addColumn("valDateTime1", timeFunction1);
+    }
 }

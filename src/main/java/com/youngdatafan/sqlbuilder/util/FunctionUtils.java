@@ -290,6 +290,8 @@ public class FunctionUtils {
         switch (functionType) {
             case STRING_TO_DATE:
                 return "strToDate";
+            case STRING_TO_TIMESTAMP:
+                return "strToDate";
             case DATE_TO_STRING:
                 return "dateFormat";
             case DATE_DIFF:
