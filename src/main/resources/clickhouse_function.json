@@ -484,6 +484,24 @@
       ]
     },
     {
+      "name": "timestampToChar",
+      "function": "formatDateTime(#1,#2)",
+      "describe": "时间戳转字符",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
       "name": "year_begin",
       "function": "toStartOfYear(#1)",
       "describe": "年初",
@@ -949,7 +967,7 @@
     },
     {
       "name": "weighted_mean",
-      "function": "SUM(#1*#2)/COUNT(#2)",
+      "function": "SUM(#1*#2)/SUM(#2)",
       "describe": "加权平均",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
