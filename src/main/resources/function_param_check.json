@@ -528,7 +528,7 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number","integer","bigNumber"]
+        "checkRegexType": ["number","integer","bigNumber","string"]
       }
     ]
   },
@@ -539,10 +539,10 @@
     "returnType": "number",
     "params": [
       {
-        "checkRegexType": ["number","integer","bigNumber"]
+        "checkRegexType": ["number","integer","bigNumber","string"]
       },
       {
-        "checkRegexType": ["number"]
+        "checkRegexType": ["number","integer","bigNumber","string"]
       }
     ]
   },
