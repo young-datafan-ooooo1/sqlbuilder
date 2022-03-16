@@ -994,7 +994,7 @@
     },
     {
       "name": "stddev_samp",
-      "function": "stddevSampStable(#1)",
+      "function": "stddevSamp(#1)",
       "describe": "标准差",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -1003,7 +1003,7 @@
     },
     {
       "name": "var_samp",
-      "function": "varSampStable(#1)",
+      "function": "varSamp(#1)",
       "describe": "方差",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
