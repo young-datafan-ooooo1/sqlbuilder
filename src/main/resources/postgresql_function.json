@@ -692,7 +692,7 @@
     },
     {
       "name": "e",
-      "function": "EXP(1)",
+      "function": "2.718281828459045",
       "describe": "e的值",
       "paramSizeType": "fixed",
       "paramMinSize": 0,
