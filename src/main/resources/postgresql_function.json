@@ -928,7 +928,7 @@
     },
     {
       "name": "toWeek",
-      "function": "date_part('week', timestamp #1)",
+      "function": "to_char(#1,'WW')",
       "describe": "周天",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
