@@ -994,7 +994,7 @@
     },
     {
       "name": "stddev_samp",
-      "function": "stddevSamp(#1)",
+      "function": "IF (isNaN(stddevSamp(#1)) == 1 or  isInfinite(stddevSamp(#1)) ==1 ,NULL , stddevSamp(#1))",
       "describe": "标准差",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -1003,7 +1003,7 @@
     },
     {
       "name": "var_samp",
-      "function": "varSamp(#1)",
+      "function": "IF (isNaN(varSamp(#1)) == 1 or  isInfinite(varSamp(#1)) ==1 ,NULL , varSamp(#1))",
       "describe": "方差",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
