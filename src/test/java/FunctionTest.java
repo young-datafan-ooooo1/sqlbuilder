@@ -631,44 +631,6 @@ public class FunctionTest {
     }
 
     @Test
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void testCountALL() {
         Function function = Function.getFunction(FunctionType.COUNT_ANY);
         query.addColumn(function);
