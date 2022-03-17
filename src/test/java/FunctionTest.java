@@ -631,44 +631,6 @@ public class FunctionTest {
     }
 
     @Test
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void testCountALL() {
         Function function = Function.getFunction(FunctionType.COUNT_ANY);
         query.addColumn(function);
@@ -684,5 +646,13 @@ public class FunctionTest {
 
         query.addColumn("valDateTime", timeFunction2);
         query.addColumn("valDateTime1", timeFunction1);
+    }
+
+
+    @Test
+    public void log() {
+        Function e = Function.getFunction(FunctionType.E);
+        Function log = Function.getFunction(FunctionType.LOG, e);
+        query.addColumn(log);
     }
 }

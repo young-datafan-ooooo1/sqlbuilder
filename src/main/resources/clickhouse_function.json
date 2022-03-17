@@ -967,7 +967,7 @@
     },
     {
       "name": "weighted_mean",
-      "function": "SUM(#1*#2)/SUM(#2)",
+      "function": "IF (isNaN(SUM(#1*#2)/SUM(#2)) == 1 or  isInfinite(SUM(#1*#2)/SUM(#2)) ==1 ,NULL , SUM(#1*#2)/SUM(#2))",
       "describe": "加权平均",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
