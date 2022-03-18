@@ -1003,7 +1003,7 @@
     },
     {
       "name": "weighted_mean",
-      "function": "SUM(#1*#2)/SUM(#2)",
+      "function": "CASE WHEN SUM(#2) = 0 THEN null ELSE SUM(#1*#2)/SUM(#2) END",
       "describe": "加权平均",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
