@@ -77,7 +77,7 @@
     {
       "name": "percentage",
       "describe": "百分比",
-      "function": "ROUND(#1/100,2)",
+      "function": "ROUND(#1/100:: NUMERIC,2)",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
       "paramMaxSize": 1,
