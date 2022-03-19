@@ -36,7 +36,7 @@ public class ExpressionTest {
 
     @Test
     public void testVerifyAndGetDataType(){
-        String json = "{\"databaseType\":\"\",\"expression\":\"concat('2021-01-01','yyyy-MM-dd')\",\"fieldList\":[{\"fieldName\":\"CUSTOMER_ID\",\"fieldType\":\"Integer\",\"tableAlias\":\"\"},{\"fieldName\":\"FIRST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"LAST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"DOB\",\"fieldType\":\"Timestamp\",\"tableAlias\":\"\"},{\"fieldName\":\"PHONE\",\"fieldType\":\"String\",\"tableAlias\":\"\"}]}";
+        String json = "{\"databaseType\":\"\",\"expression\":\"toDate('2021-01-01','yyyy-MM-dd')\",\"fieldList\":[{\"fieldName\":\"CUSTOMER_ID\",\"fieldType\":\"Integer\",\"tableAlias\":\"\"},{\"fieldName\":\"FIRST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"LAST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"DOB\",\"fieldType\":\"Timestamp\",\"tableAlias\":\"\"},{\"fieldName\":\"PHONE\",\"fieldType\":\"String\",\"tableAlias\":\"\"}]}";
         JSONObject object = JSON.parseObject(json);
         String expressStr = object.getString("expression");
         Map<String, Table> tableMap = null;

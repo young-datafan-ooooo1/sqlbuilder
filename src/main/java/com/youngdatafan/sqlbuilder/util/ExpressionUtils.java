@@ -3,6 +3,7 @@ package com.youngdatafan.sqlbuilder.util;
 import com.youngdatafan.sqlbuilder.dto.SqlField;
 import com.youngdatafan.sqlbuilder.enums.DataType;
 import com.youngdatafan.sqlbuilder.enums.FunctionType;
+import com.youngdatafan.sqlbuilder.exception.NotSupportedException;
 import com.youngdatafan.sqlbuilder.exception.SQLBuildException;
 import com.youngdatafan.sqlbuilder.model.CustomSql;
 import com.youngdatafan.sqlbuilder.model.Function;
@@ -84,7 +85,7 @@ public class ExpressionUtils {
         try {
             Model model = parser.parseExpression(expressStr);
             return getModelDataType(model);
-        } catch (SQLBuildException e) {
+        } catch (SQLBuildException | NotSupportedException e) {
             throw e;
         } catch (Exception e) {
             LOGGER.error("表达式解析失败", e);

@@ -6,6 +6,7 @@ import com.youngdatafan.sqlbuilder.enums.DatabaseType;
 import com.youngdatafan.sqlbuilder.enums.FunctionType;
 import com.youngdatafan.sqlbuilder.enums.JoinType;
 import com.youngdatafan.sqlbuilder.enums.Op;
+import com.youngdatafan.sqlbuilder.exception.NotSupportedException;
 import com.youngdatafan.sqlbuilder.exception.SQLBuildException;
 
 /**
@@ -25,7 +26,7 @@ public class EnumUtils {
     public static FunctionType getFunctionTypeByCode(String code) {
         FunctionType type = FunctionType.getEnumByCode(code);
         if (type == null) {
-            throw new SQLBuildException("暂不支持该函数：" + code);
+            throw new NotSupportedException("表达式中包含非内置函数：" + code + "，可能会执行失败！");
         }
         return type;
     }
