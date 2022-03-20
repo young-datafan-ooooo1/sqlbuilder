@@ -18,6 +18,8 @@
 name: Deploy Maven Repository
 
 on:
+  release:
+    types: [created]
   push:
     paths:
       - 'pom.xml'
