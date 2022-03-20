@@ -18,10 +18,6 @@
 name: Backend-Compile
 
 on:
-  push:
-    paths:
-      - 'pom.xml'
-      - 'src/**'
   pull_request:
     paths:
       - 'pom.xml'

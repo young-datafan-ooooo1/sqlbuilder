@@ -42,11 +42,11 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>github</id>
+            <id>ossrh</id>
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>github</id>
+            <id>ossrh</id>
             <url> https://s01.oss.sonatype.org/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
