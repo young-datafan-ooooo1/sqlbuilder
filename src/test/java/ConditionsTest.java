@@ -1,7 +1,7 @@
-import com.sensesai.sql.enums.Cp;
-import com.sensesai.sql.enums.DatabaseType;
-import com.sensesai.sql.enums.Op;
-import com.sensesai.sql.model.*;
+import com.youngdatafan.sqlbuilder.enums.Cp;
+import com.youngdatafan.sqlbuilder.enums.DatabaseType;
+import com.youngdatafan.sqlbuilder.enums.Op;
+import com.youngdatafan.sqlbuilder.model.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

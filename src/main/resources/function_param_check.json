@@ -432,5 +432,242 @@
         "checkRegexType": ["datetime","date","timestamp"]
       }
     ]
+  },
+  {
+    "name": "exp",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "exp2",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "exp10",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "log",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "log2",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "log10",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "sqrt",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "cbrt",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber"]
+      }
+    ]
+  },
+  {
+    "name": "toUInt8OrZero",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber","string"]
+      }
+    ]
+  },
+  {
+    "name": "toDecimal64",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number","integer","bigNumber","string"]
+      },
+      {
+        "checkRegexType": ["number","integer","bigNumber","string"]
+      }
+    ]
+  },
+  {
+    "name": "toYear",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toQuarter",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toMonth",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toDayOfWeek",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toWeek",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toDayOfMonth",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toHour",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["time", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toMinute",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["time", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "toSecond",
+    "min": 1,
+    "max": 1,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["time", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "formatDate_Y_M",
+    "min": 1,
+    "max": 1,
+    "returnType": "string",
+    "params": [
+      {
+        "checkRegexType": ["date", "datetime", "timestamp", "string"]
+      }
+    ]
+  },
+  {
+    "name": "weighted_mean",
+    "min": 2,
+    "max": 2,
+    "returnType": "number",
+    "params": [
+      {
+        "checkRegexType": ["number"]
+      },
+      {
+        "checkRegexType": ["number"]
+      }
+    ]
   }
 ]

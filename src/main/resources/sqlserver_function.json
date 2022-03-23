@@ -484,6 +484,24 @@
       ]
     },
     {
+      "name": "timestampToChar",
+      "function": "CONVERT(varchar(100),#1,#2)",
+      "describe": "时间戳转字符",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
       "name": "year_begin",
       "function": "CONVERT(date, CONVERT ( CHAR ( 4 ), YEAR (#1) ) + '-01-01')",
       "describe": "年初",
@@ -556,6 +574,15 @@
       "params": []
     },
     {
+      "name": "current_date",
+      "function": "CONVERT(VARCHAR(10) ,GETDATE(), 120)",
+      "describe": "当前日期",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
       "name": "current_timestamp",
       "function": "GETDATE()",
       "describe": "当前日期时间",
@@ -604,6 +631,366 @@
       "name": "current_day",
       "function": "DATEPART(DAY ,GETDATE())",
       "describe": "当前日",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "not",
+      "function": "NOT(#1)",
+      "describe": "取反",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "e",
+      "function": "EXP(1)",
+      "describe": "e的值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "pi",
+      "function": "PI()",
+      "describe": "pi的值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "exp",
+      "function": "EXP(#1)",
+      "describe": "e的x次方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "exp2",
+      "function": "POWER(2, #1)",
+      "describe": "2的x次方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "exp10",
+      "function": "POWER(10, #1)",
+      "describe": "10的x次方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "log",
+      "function": "LOG(#1)",
+      "describe": "log以e为底的对数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "log2",
+      "function": "LOG(#1, 2)",
+      "describe": "log以2为底的对数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "log10",
+      "function": "LOG(#1, 10)",
+      "describe": "log以10为底的对数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "sqrt",
+      "function": "SQRT(#1)",
+      "describe": "开平方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "function": "CAST(#1 AS VARCHAR)",
+      "describe": "转成字符串",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toUInt8OrZero",
+      "function": "CAST(#1 AS int)",
+      "describe": "转成整数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "toDecimal64",
+      "function": "CAST(#1 AS DECIMAL(38,#2))",
+      "describe": "转成整数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        },
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "yesterday",
+      "function": "CONVERT ( VARCHAR ( 10 ), DATEADD( DAY,- 1, GETDATE( ) ), 120 )",
+      "describe": "昨天",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "toYear",
+      "function": "YEAR(#1)",
+      "describe": "年份",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "date;datetime;timestamp;string",
+          "checkMsg": "参数必须为日期格式"
+        }
+      ]
+    },
+    {
+      "name": "toQuarter",
+      "function": "DATEPART(QUARTER,#1)",
+      "describe": "季度",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "date;datetime;timestamp;string",
+          "checkMsg": "参数必须为日期格式"
+        }
+      ]
+    },
+    {
+      "name": "toMonth",
+      "function": "MONTH(#1)",
+      "describe": "月",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "date;datetime;timestamp;string",
+          "checkMsg": "参数必须为日期"
+        }
+      ]
+    },
+    {
+      "name": "toDayOfWeek",
+      "function": "DATEPART(WEEKDAY,DATEADD(DAY,-1,#1))",
+      "describe": "周天",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "date;datetime;timestamp;string",
+          "checkMsg": "参数必须为日期"
+        }
+      ]
+    },
+    {
+      "name": "toWeek",
+      "function": "DATEPART(WW,#1)",
+      "describe": "周数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "date;datetime;timestamp;string",
+          "checkMsg": "参数必须为日期"
+        }
+      ]
+    },
+    {
+      "name": "toDayOfMonth",
+      "function": "DAY(#1)",
+      "describe": "月天数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "date;datetime;timestamp;string",
+          "checkMsg": "参数必须为日期"
+        }
+      ]
+    },
+    {
+      "name": "toHour",
+      "function": "DATEPART(Hour, #1)",
+      "describe": "小时",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "datetime;timestamp;time;string",
+          "checkMsg": "参数必须为时间格式"
+        }
+      ]
+    },
+    {
+      "name": "toMinute",
+      "function": "DATEPART(Minute, #1)",
+      "describe": "分钟",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "datetime;timestamp;time;string",
+          "checkMsg": "参数必须为时间格式"
+        }
+      ]
+    },
+    {
+      "name": "toSecond",
+      "function": "DATEPART(Second, #1)",
+      "describe": "秒",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "datetime;timestamp;time;string",
+          "checkMsg": "参数必须为时间格式"
+        }
+      ]
+    },
+    {
+      "name": "formatDate_Y_M",
+      "function": "CONVERT(varchar(7) ,#1, 120)",
+      "describe": "年月",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "datetime;timestamp;date;string",
+          "checkMsg": "参数必须为日期格式"
+        }
+      ]
+    },
+    {
+      "name": "weighted_mean",
+      "function": "CASE WHEN SUM(#2) = 0 THEN null ELSE SUM(#1*#2)/SUM(#2) END",
+      "describe": "加权平均",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        },
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "stddev_samp",
+      "function": "STDEVP(#1)",
+      "describe": "标准差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "var_samp",
+      "function": "VARP(#1)",
+      "describe": "方差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "count_any",
+      "function": "COUNT(1)",
+      "describe": "计算所有",
       "paramSizeType": "fixed",
       "paramMinSize": 0,
       "paramMaxSize": 0,

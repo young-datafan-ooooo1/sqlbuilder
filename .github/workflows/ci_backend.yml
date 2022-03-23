@@ -15,27 +15,13 @@
 # limitations under the License.
 #
 
-name: Backend
+name: Backend-Compile
 
 on:
-  push:
-    paths:
-      - '.github/workflows/ci_backend.yml'
-      - 'package.xml'
-      - 'pom.xml'
-      - '.gitignore'
-      - 'README.md'
-      - 'src/**'
-      - 'style/**'
   pull_request:
     paths:
-      - '.github/workflows/ci_backend.yml'
-      - 'package.xml'
       - 'pom.xml'
-      - '.gitignore'
-      - 'README.md'
       - 'src/**'
-      - 'style/**'
 
 jobs:
   Compile-check:

@@ -1,12 +1,12 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sensesai.sql.dto.SqlField;
-import com.sensesai.sql.enums.DataType;
-import com.sensesai.sql.enums.DatabaseType;
-import com.sensesai.sql.model.Model;
-import com.sensesai.sql.model.Query;
-import com.sensesai.sql.model.Table;
-import com.sensesai.sql.util.ExpressionUtils;
+import com.youngdatafan.sqlbuilder.dto.SqlField;
+import com.youngdatafan.sqlbuilder.enums.DataType;
+import com.youngdatafan.sqlbuilder.enums.DatabaseType;
+import com.youngdatafan.sqlbuilder.model.Model;
+import com.youngdatafan.sqlbuilder.model.Query;
+import com.youngdatafan.sqlbuilder.model.Table;
+import com.youngdatafan.sqlbuilder.util.ExpressionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,7 +36,7 @@ public class ExpressionTest {
 
     @Test
     public void testVerifyAndGetDataType(){
-        String json = "{\"databaseType\":\"\",\"expression\":\"concat('2021-01-01','yyyy-MM-dd')\",\"fieldList\":[{\"fieldName\":\"CUSTOMER_ID\",\"fieldType\":\"Integer\",\"tableAlias\":\"\"},{\"fieldName\":\"FIRST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"LAST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"DOB\",\"fieldType\":\"Timestamp\",\"tableAlias\":\"\"},{\"fieldName\":\"PHONE\",\"fieldType\":\"String\",\"tableAlias\":\"\"}]}";
+        String json = "{\"databaseType\":\"\",\"expression\":\"toDate('2021-01-01','yyyy-MM-dd')\",\"fieldList\":[{\"fieldName\":\"CUSTOMER_ID\",\"fieldType\":\"Integer\",\"tableAlias\":\"\"},{\"fieldName\":\"FIRST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"LAST_NAME\",\"fieldType\":\"String\",\"tableAlias\":\"\"},{\"fieldName\":\"DOB\",\"fieldType\":\"Timestamp\",\"tableAlias\":\"\"},{\"fieldName\":\"PHONE\",\"fieldType\":\"String\",\"tableAlias\":\"\"}]}";
         JSONObject object = JSON.parseObject(json);
         String expressStr = object.getString("expression");
         Map<String, Table> tableMap = null;
