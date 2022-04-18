@@ -2,7 +2,9 @@
 
 sqlbuilder
 
-通用的sql构建包，目前支持（mysql、oracle、postgresql、sqlserver、Clickhouse）的大部分函数，以及多表关联
+通用的sql构建包，目前支持（mysql、oracle、postgresql、sqlserver、Clickhouse）的大部分函数，以及多表关联。
+
+帮助文档：http://www.young-datafan.com/docs-sqlbuilder/intro/
 
 --------------------------------------------------------------------------------
 # 使用
