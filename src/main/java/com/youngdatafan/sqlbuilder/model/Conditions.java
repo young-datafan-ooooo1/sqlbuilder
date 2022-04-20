@@ -109,7 +109,7 @@ public final class Conditions implements Model {
      * @return 当前对象
      */
     public Conditions or(Condition condition) {
-        list.add(new Conditions(Cp.AND, condition, null));
+        list.add(new Conditions(Cp.OR, condition, null));
         return this;
     }
 
