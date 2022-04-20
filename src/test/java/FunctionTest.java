@@ -55,21 +55,24 @@ public class FunctionTest {
         System.out.println(query.getDatabaseSql(DatabaseType.CLICKHOUSE));
         System.out.println();
 
+
+
+        System.out.println("kdw：");
+        System.out.println(query.getDatabaseSql(DatabaseType.KDW));
+        System.out.println();
+
         System.out.println("mysql：");
         System.out.println(query.getDatabaseSql(DatabaseType.MYSQL));
+        System.out.println();
+
+        System.out.println("spark：");
+        System.out.println(query.getDatabaseSql(DatabaseType.SPARK));
         System.out.println();
 
         System.out.println("sqlserver：");
         System.out.println(query.getDatabaseSql(DatabaseType.MSSQL));
         System.out.println();
 
-        System.out.println("kdw：");
-        System.out.println(query.getDatabaseSql(DatabaseType.KDW));
-        System.out.println();
-
-        System.out.println("spark：");
-        System.out.println(query.getDatabaseSql(DatabaseType.SPARK));
-        System.out.println();
     }
 
     /**
@@ -654,5 +657,42 @@ public class FunctionTest {
         Function e = Function.getFunction(FunctionType.E);
         Function log = Function.getFunction(FunctionType.LOG, e);
         query.addColumn(log);
+    }
+
+    @Test
+    public void percentageNum() {
+        Function function = Function.getFunction(FunctionType.PERCENTAGE_NUM, CustomSql.getCustomSql("'10%'"));
+        query.addColumn(function);
+    }
+
+    @Test
+    public void numPercentage() {
+        Function function = Function.getFunction(FunctionType.NUM_PERCENTAGE, CustomSql.getCustomSql("10.21"));
+        query.addColumn(function);
+    }
+
+    @Test
+    public void mulPolym() {
+        Function function = Function.getFunction(FunctionType.MUL_POLYM, id);
+        query.addColumn(function);
+    }
+
+    @Test
+    public void quantile() {
+        Function function = Function.getFunction(FunctionType.QUANTILE, CustomSql.getCustomSql("0.1"),id);
+        query.addColumn(function);
+    }
+
+    @Test
+    public void fourQuantile() {
+        Function function = Function.getFunction(FunctionType.FOUR_QUANTILE,id);
+        query.addColumn(function);
+    }
+
+
+    @Test
+    public void correlationCoefficient() {
+        Function function = Function.getFunction(FunctionType.CORRELATION_COEFFICIENT,id,salary);
+        query.addColumn(function);
     }
 }
