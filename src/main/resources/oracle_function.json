@@ -1084,7 +1084,7 @@
     },
     {
       "name": "quantile",
-      "function": "PERCENTILE_CONT(#1) within group(order by #2)",
+      "function": "PERCENTILE_CONT(#2) within group(order by #1)",
       "describe": "分位数",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
