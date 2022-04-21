@@ -1093,7 +1093,7 @@
     },
     {
       "name": "quantile",
-      "function": "percentile_disc(#1) within group (order by #2)",
+      "function": "percentile_disc(#2) within group (order by #1)",
       "describe": "分位数",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
