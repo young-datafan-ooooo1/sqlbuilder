@@ -1039,7 +1039,7 @@
     },
     {
       "name": "mul_polym",
-      "function": "case when min(abs(#1)) = 0 then 0 else EXP(SUM(Log(abs(nullif(#1 ,0)))))*round(0.5-count(nullif(sign(sign(#1)+0.5),1))%2,0) end ",
+      "function": "case when min(abs(#1)) = 0 then 0 else EXP(SUM(Log(abs(nullif(#1 ,0)))))*round(0.25-count(nullif(sign(sign(#1)+0.5),1))%2,0) end ",
       "describe": "乘积聚合",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
