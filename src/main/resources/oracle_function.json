@@ -1111,7 +1111,7 @@
     },
     {
       "name": "stddev_pop",
-      "function": "STDDEV(#1)",
+      "function": "STDDEV_POP(#1)",
       "describe": "总体标准差",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
