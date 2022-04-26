@@ -1159,8 +1159,8 @@
       "function": "sum(#1*#2)",
       "describe": "权重和",
       "paramSizeType": "fixed",
-      "paramMinSize": 1,
-      "paramMaxSize": 1,
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
       "params": []
     }
   ]
