@@ -1039,7 +1039,7 @@
     },
     {
       "name": "mul_polym",
-      "function": "exp(sum(log(#1)))",
+      "function": "case when min(abs(#1)) = 0 then 0 else EXP(SUM(Log(abs(nullif(#1 ,0)))))*round(0.5-count(nullif(sign(sign(#1)+0.5),1))%2,0) end ",
       "describe": "乘积聚合",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -1102,7 +1102,7 @@
     },
     {
       "name": "correlation_coefficient",
-      "function": "if(stddevPop(#1)=0 or stddevPop(#2)=0,null,covarPop(#1,#2)/stddevPop(#1)*stddevPop(#2))",
+      "function": "if(stddevPop(#1)=0 or stddevPop(#2)=0,null,covarPop(#1,#2)/(stddevPop(#1)*stddevPop(#2)))",
       "describe": "相关系数",
       "paramSizeType": "fixed",
       "paramMinSize": 2,

@@ -1016,7 +1016,7 @@
     },
     {
       "name": "mul_polym",
-      "function": "exp(sum(log(#1)))",
+      "function": "case when min(abs(#1)) = 0 then 0 else EXP(SUM(Log(abs(nullif(#1 ,0)))))*round(0.5-count(nullif(sign(sign(#1)+0.5),1))%2,0) end ",
       "describe": "乘积聚合",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -1066,6 +1066,24 @@
       "paramSizeType": "fixed",
       "paramMinSize": 1,
       "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "covar_pop",
+      "function": "(varp(#1+#2) - varp(#1) - varp(#2))/2",
+      "describe": "协方差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "correlation_coefficient",
+      "function": "CASE WHEN stdevp(#1) = 0 OR stdevp(#2)= 0 THEN NULL ELSE (varp(#1+#2) - varp(#1) - varp(#2))/(2*stdevp(#1)*stdevp(#2)) END",
+      "describe": "相关系数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
       "params": []
     }
   ]
