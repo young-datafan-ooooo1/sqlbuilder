@@ -1093,11 +1093,11 @@
     },
     {
       "name": "four_quantile",
-      "function": "PERCENTILE_CONT(0.4) within group(order by #1)",
+      "function": "PERCENTILE_CONT(#2) within group(order by #1)",
       "describe": "四分位数",
       "paramSizeType": "fixed",
-      "paramMinSize": 1,
-      "paramMaxSize": 1,
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
       "params": []
     },
     {
