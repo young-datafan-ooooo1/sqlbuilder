@@ -391,7 +391,7 @@
     },
     {
       "name": "substr",
-      "function": "SUBSTRING(#1,#2,#3)",
+      "function": "substringUTF8(#1,#2,#3)",
       "describe": "字符串截取",
       "paramSizeType": "fixed",
       "paramMinSize": 3,
@@ -413,7 +413,7 @@
     },
     {
       "name": "lsubstr",
-      "function": "LEFT(#1,#2)",
+      "function": "substringUTF8(#1,1,#2)",
       "describe": "从左侧截取字符串",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
@@ -431,7 +431,7 @@
     },
     {
       "name": "rsubstr",
-      "function": "RIGHT(#1,#2)",
+      "function": "substringUTF8(#1,lengthUTF8(#1)-#2+1)",
       "describe": "从右侧截取字符串",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
