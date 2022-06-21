@@ -271,7 +271,7 @@
     },
     {
       "name": "length",
-      "function": "LENGTH(#1)",
+      "function": "lengthUTF8(#1)",
       "describe": "计算字符串长度",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
