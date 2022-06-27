@@ -284,20 +284,6 @@
       ]
     },
     {
-      "name": "concat",
-      "function": "CONCAT",
-      "describe": "字符串拼接",
-      "paramSizeType": "range",
-      "paramMinSize": 2,
-      "paramMaxSize": 9999,
-      "params": [
-        {
-          "checkRegexType": "string",
-          "checkMsg": "参数必须为字符串"
-        }
-      ]
-    },
-    {
       "name": "upper",
       "function": "UPPER(#1)",
       "describe": "字符串转大写",

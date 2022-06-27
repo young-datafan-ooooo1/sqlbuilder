@@ -5,7 +5,9 @@ import com.youngdatafan.sqlbuilder.enums.TimeUnitType;
 import com.youngdatafan.sqlbuilder.exception.SQLBuildException;
 import com.youngdatafan.sqlbuilder.model.AbstractFunction;
 import com.youngdatafan.sqlbuilder.model.Function;
+import com.youngdatafan.sqlbuilder.model.Model;
 import com.youngdatafan.sqlbuilder.util.PropertyUtils;
+import java.util.List;
 
 /**
  * kdw函数实现.
@@ -98,5 +100,21 @@ public class KdwFunction extends AbstractDatabaseFunctionAbstract {
         }
         return "(" + model + "+INTERVAL '" + value + " "
                 + PropertyUtils.getDatabaseTimeUnit(getDatabaseType(), timeUnitType) + "')";
+    }
+
+    /**
+     * 字符串拼接函数.
+     * @param abstractFunction 函数模型
+     * @return 数据库标准sql.
+     */
+    public String strConcat(AbstractFunction abstractFunction) {
+        Function function = isFunction(abstractFunction);
+        List<Model> paramList = function.getParamList();
+        StringBuilder sb = new StringBuilder();
+        for (Model item : paramList) {
+            String model = item.getDatabaseSql(getDatabaseType());
+            sb.append(model).append("||");
+        }
+        return sb.substring(0, sb.length() - 2);
     }
 }
