@@ -296,6 +296,8 @@ public class FunctionUtils {
                 return "dateFormat";
             case DATE_DIFF:
                 return "dateDiff";
+            case CONCAT:
+                return "strConcat";
             default:
                 return functionType.getCode();
         }
