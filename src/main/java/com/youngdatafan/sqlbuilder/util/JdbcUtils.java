@@ -38,6 +38,7 @@ public class JdbcUtils {
             case Types.CHAR:
             case Types.VARCHAR:
             case Types.LONGVARCHAR:
+            case Types.CLOB:
                 return DataType.STRING;
             case Types.DATE:
                 return DataType.DATE;
