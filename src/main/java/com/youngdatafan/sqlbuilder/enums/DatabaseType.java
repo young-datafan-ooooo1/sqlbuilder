@@ -72,6 +72,21 @@ public enum DatabaseType {
      */
     private final String name;
 
+    /**
+     * 是否使用包围符.
+     */
+    private boolean quoteAllFields = true;
+
+    /**
+     * 是否转小写.
+     */
+    private boolean forceIdentifiersToLowercase;
+
+    /**
+     * 是否转大写.
+     */
+    private boolean forceIdentifiersToUppercase;
+
     DatabaseType(String code, String name) {
         this.code = code;
         this.name = name;
@@ -91,5 +106,17 @@ public enum DatabaseType {
             }
         }
         return null;
+    }
+
+    public void setQuoteAllFields(boolean quoteAllFields) {
+        this.quoteAllFields = quoteAllFields;
+    }
+
+    public void setForceIdentifiersToLowercase(boolean forceIdentifiersToLowercase) {
+        this.forceIdentifiersToLowercase = forceIdentifiersToLowercase;
+    }
+
+    public void setForceIdentifiersToUppercase(boolean forceIdentifiersToUppercase) {
+        this.forceIdentifiersToUppercase = forceIdentifiersToUppercase;
     }
 }
