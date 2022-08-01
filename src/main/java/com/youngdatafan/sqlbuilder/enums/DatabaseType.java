@@ -60,7 +60,12 @@ public enum DatabaseType {
     /**
      * clickhouse.
      */
-    CLICKHOUSE("clickhouse", "clickhouse");
+    CLICKHOUSE("clickhouse", "clickhouse"),
+
+    /**
+     * hive.
+     */
+    HIVE("hive", "hive");
 
     /**
      * 代码.

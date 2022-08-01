@@ -5,3 +5,4 @@ com.youngdatafan.sqlbuilder.function.impl.KdwFunction
 com.youngdatafan.sqlbuilder.function.impl.ClickhouseFunction
 com.youngdatafan.sqlbuilder.function.impl.SqlServerFunction
 com.youngdatafan.sqlbuilder.function.impl.SparkFunction
+com.youngdatafan.sqlbuilder.function.impl.HiveFunction

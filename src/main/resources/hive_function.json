@@ -413,7 +413,7 @@
     },
     {
       "name": "lsubstr",
-      "function": "LEFT(#1,#2)",
+      "function": "SUBSTRING(#1,1,#2)",
       "describe": "从左侧截取字符串",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
@@ -431,7 +431,7 @@
     },
     {
       "name": "rsubstr",
-      "function": "RIGHT(#1,#2)",
+      "function": "SUBSTRING(#1,0-#2,#2)",
       "describe": "从右侧截取字符串",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
@@ -449,7 +449,7 @@
     },
     {
       "name": "instr",
-      "function": "POSITION(#2 IN #1)",
+      "function": "instr(#1, #2)",
       "describe": "查找字符串位置",
       "paramSizeType": "fixed",
       "paramMinSize": 2,
@@ -503,7 +503,7 @@
     },
     {
       "name": "year_begin",
-      "function": "trunc(#1, 'yyyy' )",
+      "function": "trunc(#1, 'YY' )",
       "describe": "年初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -512,7 +512,7 @@
     },
     {
       "name": "year_end",
-      "function": "add_months( trunc(#1, 'yyyy' ), 12 ) - 1",
+      "function": "date_sub(add_months( trunc(#1, 'YY' ),12 ),1)",
       "describe": "年末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -521,7 +521,7 @@
     },
     {
       "name": "quarter_begin",
-      "function": "trunc(#1, 'QUARTER' )",
+      "function": "add_months(concat(year(#1),'-',substr(concat('0',floor((month(#1)+2)/3)*3+1),-2),'-01'),-3)",
       "describe": "季初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -530,7 +530,7 @@
     },
     {
       "name": "quarter_end",
-      "function": "add_months(trunc(#1, 'QUARTER' ), 3 )-1",
+      "function": "date_sub(concat(year(#1),'-',substr(concat('0',floor((month(#1)+2)/3)*3+1),-2),'-01'),1)",
       "describe": "季末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -557,7 +557,7 @@
     },
     {
       "name": "week_begin",
-      "function": "trunc(#1, 'WEEK' )",
+      "function": "date_sub(next_day(#1,'MO'),7)",
       "describe": "周初",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -566,7 +566,7 @@
     },
     {
       "name": "week_end",
-      "function": "trunc(#1, 'WEEK' )+6",
+      "function": "date_sub(next_day(#1,'MO'),1)",
       "describe": "周末",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -575,7 +575,7 @@
     },
     {
       "name": "current_timestamp",
-      "function": "CURRENT_TIMESTAMP()",
+      "function": "from_unixtime(unix_timestamp() ,'yyyy-MM-dd HH:mm:ss')",
       "describe": "当前日期时间",
       "paramSizeType": "fixed",
       "paramMinSize": 0,
@@ -593,7 +593,7 @@
     },
     {
       "name": "current_time",
-      "function": "CURTIME()",
+      "function": "from_unixtime(unix_timestamp() ,'HH:mm:ss')",
       "describe": "当前时间",
       "paramSizeType": "fixed",
       "paramMinSize": 0,
@@ -656,7 +656,7 @@
     },
     {
       "name": "percentage_num",
-      "function": "REPLACE(#1,'%','')/100",
+      "function": "replace(#1,'%','')/100",
       "describe": "百分比转数值",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
@@ -665,7 +665,7 @@
     },
     {
       "name": "num_percentage",
-      "function": "concat(#1*100,'%')",
+      "function": "concat(#1*100,'%') ",
       "describe": "数值转百分比",
       "paramSizeType": "fixed",
       "paramMinSize": 1,
