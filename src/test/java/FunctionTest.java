@@ -3,6 +3,7 @@ import com.youngdatafan.sqlbuilder.enums.DateFormatType;
 import com.youngdatafan.sqlbuilder.enums.FunctionType;
 import com.youngdatafan.sqlbuilder.enums.TimeUnitType;
 import com.youngdatafan.sqlbuilder.model.*;
+import com.youngdatafan.sqlbuilder.util.PropertyUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,13 +28,13 @@ public class FunctionTest {
 
     @Before
     public void before() {
-        schema = Schema.getSchema("");
-        test = Table.getOriginalTable(schema, "test", "t");
-        id = test.addField("id");
-        salary = test.addField("salary");
-        name = test.addField("name");
+        schema = Schema.getSchema("tbdata");
+        test = Table.getOriginalTable(schema, "lizihao_test", "t");
+        id = test.addField("cust_id");
+        salary = test.addField("ca_statt_instlmt_amt");
+        name = test.addField("highest_prod_nm");
         create_date = test.addField("create_date");
-        create_time = test.addField("create_time");
+        create_time = test.addField("`date1`");
         create_timestamp = test.addField("create_timestamp");
 
         query = new Query();
@@ -43,6 +44,15 @@ public class FunctionTest {
     public void after() {
 
         query.addFrom(test);
+
+        System.out.println("spark：");
+        System.out.println(query.getDatabaseSql(DatabaseType.SPARK));
+        System.out.println();
+
+        System.out.println("hive：");
+        System.out.println(query.getDatabaseSql(DatabaseType.HIVE));
+        System.out.println();
+
         System.out.println("oracle：");
         System.out.println(query.getDatabaseSql(DatabaseType.ORACLE));
         System.out.println();
@@ -63,10 +73,6 @@ public class FunctionTest {
 
         System.out.println("mysql：");
         System.out.println(query.getDatabaseSql(DatabaseType.MYSQL));
-        System.out.println();
-
-        System.out.println("spark：");
-        System.out.println(query.getDatabaseSql(DatabaseType.SPARK));
         System.out.println();
 
         System.out.println("sqlserver：");
@@ -103,7 +109,9 @@ public class FunctionTest {
         Function max = Function.getFunction(FunctionType.MAX, id);
         Function sum = Function.getFunction(FunctionType.SUM, id);
         Function avg = Function.getFunction(FunctionType.AVG, id);
+        Function countAny = Function.getFunction(FunctionType.COUNT_ANY);
 
+        query.addColumn(countAny);
         query.addColumn("countVal", count);
         query.addColumn("countDistinctVal", countDistinct);
         query.addColumn("minVal", min);
@@ -122,9 +130,9 @@ public class FunctionTest {
         Function len = Function.getFunction(FunctionType.LENGTH, name);
         Function concat = Function.getFunction(FunctionType.CONCAT, name, CustomSql.getCustomSql("'***'"));
 
-        query.addColumn("sign" + "Val", sign);
-        query.addColumn("rand" + "Val", rand);
-        query.addColumn("len" + "Val", len);
+//        query.addColumn("sign" + "Val", sign);
+//        query.addColumn("rand" + "Val", rand);
+//        query.addColumn("len" + "Val", len);
         query.addColumn("concat" + "Val", concat);
     }
 
@@ -161,8 +169,8 @@ public class FunctionTest {
         Function rsubstr = Function.getFunction(FunctionType.RIGHT_SUBSTR,
                 name, CustomSql.getCustomSql("2"));
 
-        query.addColumn("substr" + "Val", substr);
-        query.addColumn("lsubstr" + "Val", lsubstr);
+       // query.addColumn("substr" + "Val", substr);
+      //  query.addColumn("lsubstr" + "Val", lsubstr);
         query.addColumn("rsubstr" + "Val", rsubstr);
     }
 
@@ -270,7 +278,7 @@ public class FunctionTest {
      */
     @Test
     public void testAddDateTime() {
-        CustomSql value = CustomSql.getCustomSql("1");
+        CustomSql value = CustomSql.getCustomSql("3");
 
         query.addColumn("", create_time);
         query.addColumn("year", Function.getFunction(FunctionType.ADD_DATE_TIME,
@@ -339,13 +347,13 @@ public class FunctionTest {
     public void testDateDiff() {
         Function value = Function.getFunction(FunctionType.STRING_TO_DATE,
                 CustomSql.getCustomSql("'2021-07-27 16:44:00'"),
-                CustomSql.getCustomSql(DateFormatType.YYYY_MM_DD.getCode()));
+                CustomSql.getCustomSql(DateFormatType.YYYY_MM_DD_HH24_MI_SS.getCode()));
         query.addColumn("", create_time);
         query.addColumn("year", Function.getFunction(FunctionType.DATE_DIFF,
                 CustomSql.getCustomSql(TimeUnitType.YEAR.getCode()),
                 create_time, value));
 
-        query.addColumn("quarter", Function.getFunction(FunctionType.DATE_DIFF
+       query.addColumn("quarter", Function.getFunction(FunctionType.DATE_DIFF
                 , CustomSql.getCustomSql(TimeUnitType.QUARTER.getCode()),
                 create_time, value));
 
@@ -434,8 +442,8 @@ public class FunctionTest {
     @Test
     public void testCurrentTimestamp() {
         Function currentTimestamp = Function.getFunction(FunctionType.CURRENT_TIMESTAMP);
-        //Function currentDate = Function.getFunction(FunctionType.CURRENT_DATE);
-        //Function currentTime = Function.getFunction(FunctionType.CURRENT_TIME);
+        Function currentDate = Function.getFunction(FunctionType.CURRENT_DATE);
+        Function currentTime = Function.getFunction(FunctionType.CURRENT_TIME);
         Function currentYear = Function.getFunction(FunctionType.CURRENT_YEAR);
         Function currentQuarter = Function.getFunction(FunctionType.CURRENT_QUARTER);
         Function currentMonth = Function.getFunction(FunctionType.CURRENT_MONTH);
@@ -443,8 +451,8 @@ public class FunctionTest {
         Function currentDay = Function.getFunction(FunctionType.CURRENT_DAY);
 
         query.addColumn("currentTimestamp" + "Val", currentTimestamp);
-        //query.addColumn("currentDate" + "Val", currentDate);
-        //query.addColumn("currentTime" + "Val", currentTime);
+        query.addColumn("currentDate" + "Val", currentDate);
+        query.addColumn("currentTime" + "Val", currentTime);
         query.addColumn("currentYear" + "Val", currentYear);
         query.addColumn("currentQuarter" + "Val", currentQuarter);
         query.addColumn("currentMonth" + "Val", currentMonth);
@@ -514,7 +522,7 @@ public class FunctionTest {
      */
     @Test
     public void testDateFormatNew() {
-        Model model = Function.getFunction(FunctionType.CURRENT_DATE);
+        Model model = Function.getFunction(FunctionType.CURRENT_TIMESTAMP);
         Function yesterday = Function.getFunction(FunctionType.YESTERDAY);
         Function year = Function.getFunction(FunctionType.YEAR, model);
         Function quarter = Function.getFunction(FunctionType.QUARTER, model);
@@ -539,6 +547,9 @@ public class FunctionTest {
         query.addColumn(week);
     }
 
+    /**
+     * 加权平均.
+     */
     @Test
     public void testWeightedMean() {
         Function function = Function.getFunction(FunctionType.WEIGHTED_MEAN, id, salary);
@@ -569,59 +580,6 @@ public class FunctionTest {
         query.addFrom(test);
     }
 
-    public Query ranking() {
-        Query rankingInit = rankingInit();
-        rankingInit.setAlias("r");
-        Query query = new Query();
-        Schema schema = Schema.getSchema("");
-        Table test_user = Table.getOriginalTable(schema, "test_user", "t");
-        query.addFrom(test_user);
-        query.addFrom(rankingInit);
-        String databaseSql = query.getDatabaseSql(DatabaseType.MYSQL);
-        System.out.println(databaseSql);
-        Field nameField = Field.getField(test_user, "name");
-        Function concat = Function.getFunction(FunctionType.CONCAT, nameField);
-
-        return query;
-    }
-
-    /**
-     * SELECT @p:=NULL,@r:=0.
-     * @return
-     */
-    public Query rankingInit() {
-        Query query = new Query();
-        Model init1 = CustomSql.getCustomSql("@p:=NULL");
-        Model init2 = CustomSql.getCustomSql("@r:=0");
-        query.addColumn(init1, init2);
-        String databaseSql = query.getDatabaseSql(DatabaseType.MYSQL);
-        System.out.println(databaseSql);
-
-        return query;
-    }
-
-    /**
-     * select count(1) num, `name` from test_user GROUP BY `name`.
-     * @return
-     */
-    public Query count() {
-        Query count = new Query();
-        Schema schema = Schema.getSchema("");
-        Table test_user = Table.getOriginalTable(schema, "test_user", "t");
-        count.addFrom(test_user);
-
-        Model model = CustomSql.getCustomSql("*");
-        Function countFunction = Function.getFunction(FunctionType.COUNT, model);
-        count.addColumn("num", countFunction);
-        Field nameField = Field.getField(test_user, "name");
-        count.addGroupBy(nameField);
-
-        String databaseSql = count.getDatabaseSql(DatabaseType.MYSQL);
-        System.out.println(databaseSql);
-
-        return count;
-    }
-
     /**
      * 方差跟标准差.
      */
@@ -633,17 +591,14 @@ public class FunctionTest {
         query.addColumn(stddevSamp);
     }
 
-    @Test
-    public void testCountALL() {
-        Function function = Function.getFunction(FunctionType.COUNT_ANY);
-        query.addColumn(function);
-    }
-
-
+    /**
+     *
+     * 时间戳格式转换测试.
+     */
     @Test
     public void testTime() {
         CustomSql datetime = CustomSql.getCustomSql("'2021-01-01 18:01:01'");
-        CustomSql datetimeFormat = CustomSql.getCustomSql(DateFormatType.YYYY_MM_DD_HH24_MI_SS.getCode());
+        CustomSql datetimeFormat = CustomSql.getCustomSql("'" + DateFormatType.YYYY_MM_DD_HH24_MI_SS.getCode() + "'");
         Function timeFunction2 = Function.getFunction(FunctionType.TIMESTAMP_TO_STRING, datetime, datetimeFormat);
         Function timeFunction1 = Function.getFunction(FunctionType.STRING_TO_TIMESTAMP, datetime, datetimeFormat);
 
@@ -651,7 +606,9 @@ public class FunctionTest {
         query.addColumn("valDateTime1", timeFunction1);
     }
 
-
+    /**
+     * log函数.
+     */
     @Test
     public void log() {
         Function e = Function.getFunction(FunctionType.E);
@@ -659,37 +616,55 @@ public class FunctionTest {
         query.addColumn(log);
     }
 
+    /**
+     * 百分比转数字.
+     */
     @Test
     public void percentageNum() {
         Function function = Function.getFunction(FunctionType.PERCENTAGE_NUM, CustomSql.getCustomSql("'10%'"));
         query.addColumn(function);
     }
 
+    /**
+     * 数值转百分比.
+     */
     @Test
     public void numPercentage() {
         Function function = Function.getFunction(FunctionType.NUM_PERCENTAGE, CustomSql.getCustomSql("10.21"));
         query.addColumn(function);
     }
 
+    /**
+     * 乘积.
+     */
     @Test
     public void mulPolym() {
         Function function = Function.getFunction(FunctionType.MUL_POLYM, id);
         query.addColumn(function);
     }
 
+    /**
+     * 分位数.
+     */
     @Test
     public void quantile() {
-        Function function = Function.getFunction(FunctionType.QUANTILE, CustomSql.getCustomSql("0.1"),id);
+        Function function = Function.getFunction(FunctionType.QUANTILE, id, CustomSql.getCustomSql("0.1"));
         query.addColumn(function);
     }
 
+    /**
+     * 四分位数.
+     */
     @Test
     public void fourQuantile() {
-        Function function = Function.getFunction(FunctionType.FOUR_QUANTILE,id);
+        CustomSql customSql = CustomSql.getCustomSql("0.3");
+        Function function = Function.getFunction(FunctionType.FOUR_QUANTILE,salary, customSql);
         query.addColumn(function);
     }
 
-
+    /**
+     * 相关系数.
+     */
     @Test
     public void correlationCoefficient() {
         Function function = Function.getFunction(FunctionType.CORRELATION_COEFFICIENT,id,salary);

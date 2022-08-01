@@ -8,15 +8,16 @@ import com.youngdatafan.sqlbuilder.model.Function;
 import com.youngdatafan.sqlbuilder.util.PropertyUtils;
 
 /**
- * spark函数实现.
+ * hive函数实现.
  *
- * @author yinkaifeng
- * @since 2021-08-27 2:40 下午
+ * @author lizihao
+ * @since 2022-05-30 10:40 上午
  */
-public class SparkFunction extends AbstractDatabaseFunctionAbstract {
+public class HiveFunction extends AbstractDatabaseFunctionAbstract {
+
     @Override
     public DatabaseType getDatabaseType() {
-        return DatabaseType.SPARK;
+        return DatabaseType.HIVE;
     }
 
     /**
@@ -34,16 +35,17 @@ public class SparkFunction extends AbstractDatabaseFunctionAbstract {
         switch (timeUnitType) {
             case QUARTER:
                 return "add_months(" + model + ", 3*" + value + ")";
+            case WEEK:
+                return "date_add(" + model + ", 7*" + value + ")";
             case YEAR:
             case MONTH:
-            case WEEK:
             case DAY:
             case HOUR:
             case MINUTE:
             case SECOND:
                 return "(" + model + "+ INTERVAL " + value + " " + unitStr + ")";
             default:
-                throw new SQLBuildException("spark暂不支持该" + timeUnitType.getCode() + "时间单位加减");
+                throw new SQLBuildException("hive暂不支持该" + timeUnitType.getCode() + "时间单位加减");
         }
     }
 
@@ -62,16 +64,17 @@ public class SparkFunction extends AbstractDatabaseFunctionAbstract {
         switch (timeUnitType) {
             case QUARTER:
                 return "add_months(" + model + ", 0-3*" + value + ")";
+            case WEEK:
+                return "date_add(" + model + ", 0-7*" + value + ")";
             case YEAR:
             case MONTH:
-            case WEEK:
             case DAY:
             case HOUR:
             case MINUTE:
             case SECOND:
                 return "(" + model + "- INTERVAL " + value + " " + unitStr + ")";
             default:
-                throw new SQLBuildException("spark暂不支持该" + timeUnitType.getCode() + "时间单位加减");
+                throw new SQLBuildException("hive暂不支持该" + timeUnitType.getCode() + "时间单位加减");
         }
     }
 
@@ -100,11 +103,11 @@ public class SparkFunction extends AbstractDatabaseFunctionAbstract {
             case WEEK:
                 return "cast(datediff(" + model1 + "," + model2 + ")/7 as int)";
             case HOUR:
-                return "cast(unix_timestamp(" + model1 + ", 'yyyy-MM-dd HH:mm') - unix_timestamp(cast(" + model2 + " as timestamp), 'yyyy-MM-dd HH:mm')/3600 as int)";
+                return "cast(unix_timestamp(" + model1 + ", 'yyyy-MM-dd HH:mm') - unix_timestamp(" + model2 + ", 'yyyy-MM-dd HH:mm')/3600 as int)";
             case MINUTE:
-                return "cast(unix_timestamp(" + model1 + ", 'yyyy-MM-dd HH:mm:ss') - unix_timestamp(cast(" + model2 + " as timestamp), 'yyyy-MM-dd HH:mm:ss')/60 as int)";
+                return "cast(unix_timestamp(" + model1 + ", 'yyyy-MM-dd HH:mm:ss') - unix_timestamp(" + model2 + ", 'yyyy-MM-dd HH:mm:ss')/60 as int)";
             case SECOND:
-                return "cast(unix_timestamp(" + model1 + ", 'yyyy-MM-dd HH:mm:ss') - unix_timestamp(cast(" + model2 + " as timestamp), 'yyyy-MM-dd HH:mm:ss') as int)";
+                return "cast(unix_timestamp(" + model1 + ", 'yyyy-MM-dd HH:mm:ss') - unix_timestamp(" + model2 + ", 'yyyy-MM-dd HH:mm:ss') as int)";
             default:
                 throw new SQLBuildException("hive暂不支持" + timeUnitType.getCode() + "时间单位间隔");
         }
