@@ -65,7 +65,7 @@ public enum DatabaseType {
     /**
      * hive.
      */
-    HIVE("Hadoop_Hive2", "Hadoop_Hive2");
+    HIVE("hadoop_hive2", "Hadoop_Hive2");
 
     /**
      * 代码.
