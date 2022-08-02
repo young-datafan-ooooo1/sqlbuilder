@@ -80,7 +80,7 @@ public enum DatabaseType {
     /**
      * 是否使用包围符.
      */
-    private boolean quoteAllFields = true;
+    private boolean quoteAllFields;
 
     /**
      * 是否转小写.
