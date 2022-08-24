@@ -6,6 +6,7 @@ import com.youngdatafan.sqlbuilder.enums.JoinType;
 import com.youngdatafan.sqlbuilder.enums.ModelType;
 import com.youngdatafan.sqlbuilder.util.AssertUtils;
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * join片段.
@@ -59,7 +60,7 @@ public final class Join implements Model {
     @Override
     public String getDatabaseSql(DatabaseType databaseType) {
         StringBuilder sql = new StringBuilder();
-        sql.append(joinType.getCode()).append(" ");
+        sql.append(getJoinSql(databaseType)).append(StringUtils.SPACE);
         ModelType modelType = joinTable.getModelType();
         switch (modelType) {
             case TABLE:
@@ -75,5 +76,36 @@ public final class Join implements Model {
         sql.append(" ").append(SQLConstant.ON).append(" ");
         sql.append(joinConditions.getDatabaseSql(databaseType));
         return sql.toString();
+    }
+
+    /**
+     * 根据数据库类型获取join的sql.
+     * @param databaseType 数据库类型
+     * @return joinSql
+     */
+    public String getJoinSql(DatabaseType databaseType) {
+        switch (joinType) {
+            case LEFT:
+            case INNER:
+            case RIGHT:
+                return joinType.getCode();
+            case FULL:
+                switch (databaseType) {
+                    case MSSQL:
+                    case ORACLE:
+                        return "FULL JOIN";
+                    case HIVE:
+                    case SPARK:
+                    case POSTGRESQL:
+                    case KDW:
+                        return "FULL OUTER JOIN";
+                    case CLICKHOUSE:
+                        return "ALL FULL JOIN";
+                    default:
+                        throw new RuntimeException("MYSQL 暂不支持FULL JOIN!!!");
+                }
+            default:
+                throw new RuntimeException("暂不支持" + joinType.getCode());
+        }
     }
 }

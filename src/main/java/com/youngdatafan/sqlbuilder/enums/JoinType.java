@@ -12,7 +12,8 @@ import lombok.Getter;
 public enum JoinType {
     LEFT("LEFT JOIN", "左关联"),
     RIGHT("RIGHT JOIN", "右关联"),
-    INNER("INNER JOIN", "内关联");
+    INNER("INNER JOIN", "内关联"),
+    FULL("FULL JOIN", "全关联");
 
     /**
      * 代码.
