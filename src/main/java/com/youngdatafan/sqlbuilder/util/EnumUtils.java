@@ -84,8 +84,9 @@ public class EnumUtils {
             return Op.IN;
         }
         if ("CONTAINS".equalsIgnoreCase(code)
-                || "STARTS WITH".equalsIgnoreCase(code)
-                || "ENDS WITH".equalsIgnoreCase(code)) {
+            || "STARTS WITH".equalsIgnoreCase(code)
+            || "ENDS WITH".equalsIgnoreCase(code)
+            || "NOT CONTAINS".equalsIgnoreCase(code)) {
             return Op.LIKE;
         }
         Op type = Op.getEnumByCode(code);
