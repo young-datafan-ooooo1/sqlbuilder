@@ -88,6 +88,9 @@ public class EnumUtils {
                 || "ENDS WITH".equalsIgnoreCase(code)) {
             return Op.LIKE;
         }
+        if ("NOT CONTAINS".equalsIgnoreCase(code)) {
+            return Op.NOT_LIKE;
+        }
         Op type = Op.getEnumByCode(code);
         if (type == null) {
             throw new SQLBuildException("条件匹配类型不正确：" + code);
