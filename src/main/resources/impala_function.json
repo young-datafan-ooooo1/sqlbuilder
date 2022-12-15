@@ -1,0 +1,1063 @@
+{
+  "functions": [
+    {
+      "name": "+",
+      "describe": "加法运算",
+      "function": "",
+      "paramSizeType": "range",
+      "paramMinSize": 2,
+      "paramMaxSize": 9999,
+      "paramSplit": "+",
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "-",
+      "describe": "减法运算",
+      "function": "",
+      "paramSizeType": "range",
+      "paramMinSize": 2,
+      "paramMaxSize": 9999,
+      "paramSplit": "-",
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "*",
+      "describe": "乘法运算",
+      "function": "",
+      "paramSizeType": "range",
+      "paramMinSize": 2,
+      "paramMaxSize": 9999,
+      "paramSplit": "*",
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "/",
+      "describe": "除法运算",
+      "function": "",
+      "paramSizeType": "range",
+      "paramMinSize": 2,
+      "paramMaxSize": 9999,
+      "paramSplit": "/",
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "power",
+      "describe": "求数的n次方",
+      "function": "POWER(#1,#2)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "percentage",
+      "describe": "百分比",
+      "function": "ROUND(#1/100,2)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "count",
+      "describe": "计数函数",
+      "function": "COUNT(#1)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "all",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "count_distinct",
+      "describe": "计数函数",
+      "function": "COUNT(DISTINCT #1)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "all",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "max",
+      "describe": "求最大值",
+      "function": "MAX(#1)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "min",
+      "describe": "求最小值",
+      "function": "MIN(#1)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "sum",
+      "describe": "求和",
+      "function": "SUM(#1)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "avg",
+      "describe": "求平均值",
+      "function": "AVG(#1)",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "abs",
+      "function": "ABS(#1)",
+      "describe": "求绝对值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "mod",
+      "function": "MOD(#1,#2)",
+      "describe": "取余",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        },
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "ceil",
+      "function": "CEIL(#1)",
+      "describe": "向上取整",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "floor",
+      "function": "FLOOR(#1)",
+      "describe": "向下取整",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "round",
+      "function": "ROUND",
+      "describe": "四舍五入",
+      "paramSizeType": "range",
+      "paramMinSize": 1,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "rand",
+      "function": "RAND()",
+      "describe": "生成一个随机数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "sign",
+      "function": "SIGN(#1)",
+      "describe": "参数的符号",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "number",
+          "checkMsg": "参数必须为数字"
+        }
+      ]
+    },
+    {
+      "name": "length",
+      "function": "LENGTH(#1)",
+      "describe": "计算字符串长度",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "concat",
+      "function": "CONCAT",
+      "describe": "字符串拼接",
+      "paramSizeType": "range",
+      "paramMinSize": 2,
+      "paramMaxSize": 9999,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "upper",
+      "function": "UPPER(#1)",
+      "describe": "字符串转大写",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "lower",
+      "function": "LOWER(#1)",
+      "describe": "字符串转小写",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "trim",
+      "function": "TRIM(#1)",
+      "describe": "删除字符串两侧的空格",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "ltrim",
+      "function": "LTRIM(#1)",
+      "describe": "删除左侧空字符串",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "rtrim",
+      "function": "RTRIM(#1)",
+      "describe": "删除右侧空字符串",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "replace",
+      "function": "REPLACE(#1,#2,#3)",
+      "describe": "字符串替换",
+      "paramSizeType": "fixed",
+      "paramMinSize": 3,
+      "paramMaxSize": 3,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "substr",
+      "function": "SUBSTRING(#1,#2,#3)",
+      "describe": "字符串截取",
+      "paramSizeType": "fixed",
+      "paramMinSize": 3,
+      "paramMaxSize": 3,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "integer",
+          "checkMsg": "参数必须为整数"
+        },
+        {
+          "checkRegexType": "integer",
+          "checkMsg": "参数必须为整数"
+        }
+      ]
+    },
+    {
+      "name": "lsubstr",
+      "function": "SUBSTRING(#1,1,#2)",
+      "describe": "从左侧截取字符串",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "integer",
+          "checkMsg": "参数必须为整数"
+        }
+      ]
+    },
+    {
+      "name": "rsubstr",
+      "function": "SUBSTRING(#1,0-#2,#2)",
+      "describe": "从右侧截取字符串",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "integer",
+          "checkMsg": "参数必须为整数"
+        }
+      ]
+    },
+    {
+      "name": "instr",
+      "function": "instr(#1, #2)",
+      "describe": "查找字符串位置",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "to_char",
+      "function": "DATE_FORMAT(#1,#2)",
+      "describe": "日期转字符",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "to_date",
+      "function": "from_unixtime(unix_timestamp(#1,#2),#2)",
+      "describe": "字符串转日期",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "",
+          "checkMsg": ""
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "year_begin",
+      "function": "trunc(#1, 'YY' )",
+      "describe": "年初",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "year_end",
+      "function": "date_sub(add_months( trunc(#1, 'YY' ),12 ),1)",
+      "describe": "年末",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "quarter_begin",
+      "function": "add_months(concat(year(#1),'-',substr(concat('0',floor((month(#1)+2)/3)*3+1),-2),'-01'),-3)",
+      "describe": "季初",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "quarter_end",
+      "function": "date_sub(concat(year(#1),'-',substr(concat('0',floor((month(#1)+2)/3)*3+1),-2),'-01'),1)",
+      "describe": "季末",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "month_begin",
+      "function": "trunc(#1, 'MM' )",
+      "describe": "月初",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "month_end",
+      "function": "LAST_DAY(#1)",
+      "describe": "月末",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "week_begin",
+      "function": "date_sub(next_day(#1,'MO'),7)",
+      "describe": "周初",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "week_end",
+      "function": "date_sub(next_day(#1,'MO'),1)",
+      "describe": "周末",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "current_timestamp",
+      "function": "from_unixtime(unix_timestamp() ,'yyyy-MM-dd HH:mm:ss')",
+      "describe": "当前日期时间",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_date",
+      "function": "CURRENT_DATE()",
+      "describe": "当前日期",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_time",
+      "function": "from_unixtime(unix_timestamp() ,'HH:mm:ss')",
+      "describe": "当前时间",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_year",
+      "function": "EXTRACT(YEAR FROM CURRENT_TIMESTAMP())",
+      "describe": "当前年",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_quarter",
+      "function": "EXTRACT(QUARTER FROM CURRENT_TIMESTAMP())",
+      "describe": "当前季度",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_month",
+      "function": "EXTRACT(MONTH FROM CURRENT_TIMESTAMP())",
+      "describe": "当前月",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_week",
+      "function": "EXTRACT(WEEK FROM CURRENT_TIMESTAMP())",
+      "describe": "当前周",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "current_day",
+      "function": "EXTRACT(DAY FROM CURRENT_TIMESTAMP())",
+      "describe": "当前日",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "not",
+      "function": "not(#1)",
+      "describe": "取反",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "percentage_num",
+      "function": "replace(#1,'%','')/100",
+      "describe": "百分比转数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "num_percentage",
+      "function": "concat(#1*100,'%') ",
+      "describe": "数值转百分比",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "e",
+      "function": "e()",
+      "describe": "返回e的值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "pi",
+      "function": "pi()",
+      "describe": "返回派的值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "exp",
+      "function": "exp(#1)",
+      "describe": "e的X次方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "exp2",
+      "function": "pow(2,#1)",
+      "describe": "2的X次方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "exp10",
+      "function": "pow(10,#1)",
+      "describe": "10的X次方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "log",
+      "function": "log(e(),#1)",
+      "describe": "log以e为底的对数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "log2",
+      "function": "log2(#1)",
+      "describe": "log以2为底的对数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "log10",
+      "function": "log10(#1)",
+      "describe": "log以10为底的对数值",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "sqrt",
+      "function": "sqrt(#1)",
+      "describe": "开平方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "cbrt",
+      "function": "cbrt(#1)",
+      "describe": "开立方",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toYear",
+      "function": "year(#1)",
+      "describe": "年份",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toQuarter",
+      "function": "quarter(#1)",
+      "describe": "季度",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toMonth",
+      "function": "month(#1)",
+      "describe": "月",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toWeek",
+      "function": "weekofyear(#1)",
+      "describe": "周数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toDayOfWeek",
+      "function": "pmod(datediff(#1, '1920-01-01') - 3, 7)",
+      "describe": "周天数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toDayOfMonth",
+      "function": "day(#1)",
+      "describe": "取月天数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toHour",
+      "function": "hour(#1)",
+      "describe": "小时",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toMinute",
+      "function": "minute(#1)",
+      "describe": "分钟",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toSecond",
+      "function": "second(#1)",
+      "describe": "秒",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "formatDate_Y_M",
+      "function": "from_unixtime(unix_timestamp(#1,'yyyy-MM'),'yyyy-MM')",
+      "describe": "年月",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toDecimal64",
+      "function": "round(#1,#2)",
+      "describe": "转小数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "toUInt8OrZero",
+      "function": "cast(#1 as int)",
+      "describe": "转整数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "toString",
+      "function": "cast(#1 as string)",
+      "describe": "转成字符串",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "mul_polym",
+      "function": "case when min(abs(#1)) = 0 then 0 else EXP(SUM(Log(e(), abs(nullif(#1, 0)))))* round(0.5-count(nullif(sign(sign(#1)+ 0.5), 1))%2, 0) end",
+      "describe": "乘积",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "median",
+      "function": "percentile_approx(#1,0.5)",
+      "describe": "中分位",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "quantile",
+      "function": "percentile_approx(#1,#2)",
+      "describe": "百分位数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "four_quantile",
+      "function": "percentile_approx(#1,#2)",
+      "describe": "四分位数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "var_samp",
+      "function": "var_samp(#1)",
+      "describe": "方差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "stddev_samp",
+      "function": "stddev_samp(#1)",
+      "describe": "标准差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "standard_error",
+      "function": "STDDEV_SAMP(#1)/SQRT(count(1))",
+      "describe": "标准误差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "stddev_pop",
+      "function": "stddev_pop(#1)",
+      "describe": "总体标准差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "var_pop",
+      "function": "var_pop(#1)",
+      "describe": "总体方差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "covar_pop",
+      "function": "(var_pop(#1+#2) - var_pop(#1) - var_pop(#2))/2",
+      "describe": "协方差",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "correlation_coefficient",
+      "function": "case when stddev_pop(#1) = 0 or stddev_pop(#2)= 0 then null else covar_pop(#1 ,#2)/(stddev_pop(#1)*stddev_pop(#2)) end",
+      "describe": "相关系数",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "sum_squares",
+      "function": "sum(power(#1,2))",
+      "describe": "平方和",
+      "paramSizeType": "fixed",
+      "paramMinSize": 1,
+      "paramMaxSize": 1,
+      "params": []
+    },
+    {
+      "name": "sum_weight",
+      "function": "sum(#1*#2)",
+      "describe": "权重和",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "weighted_mean",
+      "function": "case when sum(#2) = 0 then null else sum(#1*#2)/sum(#2) end",
+      "describe": "加权平均",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": []
+    },
+    {
+      "name": "yesterday",
+      "function": "date_add(CURRENT_DATE() , -1) ",
+      "describe": "昨天",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "count_any",
+      "function": "COUNT(1)",
+      "describe": "计算所有",
+      "paramSizeType": "fixed",
+      "paramMinSize": 0,
+      "paramMaxSize": 0,
+      "params": []
+    },
+    {
+      "name": "timestampToChar",
+      "function": "DATE_FORMAT(#1,#2)",
+      "describe": "时间戳转字符",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    },
+    {
+      "name": "toTimestamp",
+      "function": "unix_timestamp(#1,#2)",
+      "describe": "字符串转时间戳",
+      "paramSizeType": "fixed",
+      "paramMinSize": 2,
+      "paramMaxSize": 2,
+      "params": [
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        },
+        {
+          "checkRegexType": "string",
+          "checkMsg": "参数必须为字符串"
+        }
+      ]
+    }
+  ]
+}

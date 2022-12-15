@@ -79,6 +79,10 @@ public class FunctionTest {
         System.out.println(query.getDatabaseSql(DatabaseType.MSSQL));
         System.out.println();
 
+        System.out.println("impala：");
+        System.out.println(query.getDatabaseSql(DatabaseType.IMPALA));
+        System.out.println();
+
     }
 
     /**
