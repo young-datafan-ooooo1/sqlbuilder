@@ -65,7 +65,12 @@ public enum DatabaseType {
     /**
      * hive.
      */
-    HIVE("hadoop_hive2", "Hadoop_Hive2");
+    HIVE("hadoop_hive2", "Hadoop_Hive2"),
+
+    /**
+     * IMPALA.
+     */
+    IMPALA("IMPALA", "IMPALA");
 
     /**
      * 代码.
