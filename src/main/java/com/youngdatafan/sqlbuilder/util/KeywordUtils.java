@@ -47,6 +47,7 @@ public class KeywordUtils {
             case CLICKHOUSE:
             case MYSQL:
             case HIVE:
+            case IMPALA:
                 quote = "`";
                 break;
             case ORACLE:
@@ -75,6 +76,7 @@ public class KeywordUtils {
             case CLICKHOUSE:
             case MYSQL:
             case HIVE:
+            case IMPALA:
                 quote = "`";
                 break;
             case ORACLE:
